@@ -1,0 +1,6732 @@
+[
+  {
+    "id": "Agfa_PICCON01.NCP",
+    "name": "Agfa Optima",
+    "sourcePath": "Agfa/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 38,
+        "y": 36
+      },
+      {
+        "x": 75,
+        "y": 85
+      },
+      {
+        "x": 176,
+        "y": 194
+      },
+      {
+        "x": 221,
+        "y": 222
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON08.NCP",
+    "name": "Agfa Vista 200",
+    "sourcePath": "z_cptech/PICCON08.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 33,
+        "y": 28
+      },
+      {
+        "x": 65,
+        "y": 73
+      },
+      {
+        "x": 93,
+        "y": 117
+      },
+      {
+        "x": 126,
+        "y": 148
+      },
+      {
+        "x": 177,
+        "y": 197
+      },
+      {
+        "x": 207,
+        "y": 209
+      },
+      {
+        "x": 224,
+        "y": 225
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 30,
+    "hue": -8,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "alvaroyus-curve_PICCON33.NCP",
+    "name": "AlvaroYus-Curve",
+    "sourcePath": "alvaroyus-curve/PICCON33.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 242,
+        "y": 233
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "VH_PseudoLog_ARRi_LOGC_-_Neutral.NCP",
+    "name": "ARRi LOGC - Neutral",
+    "sourcePath": "VH PseudoLog/ARRi LOGC - Neutral.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 15,
+        "y": 35
+      },
+      {
+        "x": 31,
+        "y": 56
+      },
+      {
+        "x": 44,
+        "y": 71
+      },
+      {
+        "x": 58,
+        "y": 83
+      },
+      {
+        "x": 74,
+        "y": 97
+      },
+      {
+        "x": 90,
+        "y": 109
+      },
+      {
+        "x": 105,
+        "y": 119
+      },
+      {
+        "x": 120,
+        "y": 130
+      },
+      {
+        "x": 135,
+        "y": 140
+      },
+      {
+        "x": 150,
+        "y": 151
+      },
+      {
+        "x": 165,
+        "y": 163
+      },
+      {
+        "x": 180,
+        "y": 173
+      },
+      {
+        "x": 194,
+        "y": 183
+      },
+      {
+        "x": 210,
+        "y": 193
+      },
+      {
+        "x": 224,
+        "y": 204
+      },
+      {
+        "x": 240,
+        "y": 220
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "D7000_film_simulation_PICCON01.NCP",
+    "name": "ASTIA",
+    "sourcePath": "D7000_film_simulation/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 52,
+        "y": 53
+      },
+      {
+        "x": 169,
+        "y": 178
+      },
+      {
+        "x": 250,
+        "y": 245
+      },
+      {
+        "x": 252,
+        "y": 248
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "B_W_PICCON16.NCP",
+    "name": "B&W Contrast",
+    "sourcePath": "B&W/PICCON16.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 37,
+        "y": 18
+      },
+      {
+        "x": 86,
+        "y": 64
+      },
+      {
+        "x": 128,
+        "y": 119
+      },
+      {
+        "x": 158,
+        "y": 156
+      },
+      {
+        "x": 191,
+        "y": 189
+      },
+      {
+        "x": 233,
+        "y": 229
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "B_W_PICCON15.NCP",
+    "name": "B&W Portrait",
+    "sourcePath": "B&W/PICCON15.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 31,
+        "y": 22
+      },
+      {
+        "x": 55,
+        "y": 62
+      },
+      {
+        "x": 75,
+        "y": 97
+      },
+      {
+        "x": 102,
+        "y": 128
+      },
+      {
+        "x": 164,
+        "y": 191
+      },
+      {
+        "x": 225,
+        "y": 225
+      },
+      {
+        "x": 244,
+        "y": 238
+      },
+      {
+        "x": 252,
+        "y": 249
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "B_W_PICCON17.NCP",
+    "name": "B&W XContrast",
+    "sourcePath": "B&W/PICCON17.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 40,
+        "y": 20
+      },
+      {
+        "x": 81,
+        "y": 59
+      },
+      {
+        "x": 108,
+        "y": 99
+      },
+      {
+        "x": 154,
+        "y": 163
+      },
+      {
+        "x": 215,
+        "y": 211
+      },
+      {
+        "x": 255,
+        "y": 244
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "LucaPeratella-BeatLogII_MaxDR_PICCON01.NCP",
+    "name": "BeatLogII MaxDR",
+    "sourcePath": "LucaPeratella-BeatLogII MaxDR/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "y": 19
+      },
+      {
+        "x": 5,
+        "y": 31
+      },
+      {
+        "x": 9,
+        "y": 39
+      },
+      {
+        "x": 17,
+        "y": 47
+      },
+      {
+        "x": 32,
+        "y": 58
+      },
+      {
+        "x": 62,
+        "y": 79
+      },
+      {
+        "x": 128,
+        "y": 118
+      },
+      {
+        "x": 192,
+        "y": 165
+      },
+      {
+        "x": 229,
+        "y": 200
+      },
+      {
+        "x": 247,
+        "y": 229
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "LucaPeratella-BeatLogII_WideDR_PICCON01.NCP",
+    "name": "BeatLogII WideDR",
+    "sourcePath": "LucaPeratella-BeatLogII WideDR/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "y": 19
+      },
+      {
+        "x": 5,
+        "y": 31
+      },
+      {
+        "x": 9,
+        "y": 39
+      },
+      {
+        "x": 17,
+        "y": 47
+      },
+      {
+        "x": 33,
+        "y": 59
+      },
+      {
+        "x": 63,
+        "y": 78
+      },
+      {
+        "x": 128,
+        "y": 115
+      },
+      {
+        "x": 192,
+        "y": 160
+      },
+      {
+        "x": 231,
+        "y": 194
+      },
+      {
+        "x": 247,
+        "y": 220
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "LucaPeratella-BeatLogII-Neutral_PICCON05.NCP",
+    "name": "BeatLogII.5-Neutral",
+    "sourcePath": "LucaPeratella-BeatLogII-Neutral/PICCON05.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "y": 14
+      },
+      {
+        "x": 5,
+        "y": 26
+      },
+      {
+        "x": 9,
+        "y": 33
+      },
+      {
+        "x": 17,
+        "y": 44
+      },
+      {
+        "x": 32,
+        "y": 59
+      },
+      {
+        "x": 63,
+        "y": 88
+      },
+      {
+        "x": 128,
+        "y": 133
+      },
+      {
+        "x": 192,
+        "y": 173
+      },
+      {
+        "x": 229,
+        "y": 204
+      },
+      {
+        "x": 247,
+        "y": 230
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON20.NCP",
+    "name": "Bluesky",
+    "sourcePath": "z_cptech/PICCON20.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 33,
+        "y": 17
+      },
+      {
+        "x": 73,
+        "y": 50
+      },
+      {
+        "x": 130,
+        "y": 125
+      },
+      {
+        "x": 211,
+        "y": 213
+      },
+      {
+        "x": 233,
+        "y": 238
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON47.NCP",
+    "name": "c1",
+    "sourcePath": "!Atest/PICCON47.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 82,
+        "y": 40
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON46.NCP",
+    "name": "c1",
+    "sourcePath": "!Atest/PICCON46.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 82,
+        "y": 40
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON41.NCP",
+    "name": "c1",
+    "sourcePath": "!Atest/PICCON41.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 82,
+        "y": 40
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON42.NCP",
+    "name": "c1-in",
+    "sourcePath": "!Atest/PICCON42.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 82,
+        "y": 40
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON43.NCP",
+    "name": "c1-in_g",
+    "sourcePath": "!Atest/PICCON43.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 82,
+        "y": 40
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Canon-5D-M2_PICCON01.NCP",
+    "name": "Canon 5d M2",
+    "sourcePath": "Canon-5D-M2/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 59,
+        "y": 62
+      },
+      {
+        "x": 94,
+        "y": 98
+      },
+      {
+        "x": 189,
+        "y": 203
+      },
+      {
+        "x": 236,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 77,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "courbe_br2_PICCON01.NCP",
+    "name": "Courbe-BR1",
+    "sourcePath": "courbe_br2/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 35,
+        "y": 37
+      },
+      {
+        "x": 62,
+        "y": 64
+      },
+      {
+        "x": 149,
+        "y": 167
+      },
+      {
+        "x": 191,
+        "y": 200
+      },
+      {
+        "x": 224,
+        "y": 226
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "courbe_br2_PICCON02.NCP",
+    "name": "Courbe-BR2",
+    "sourcePath": "courbe_br2/PICCON02.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 36,
+        "y": 39
+      },
+      {
+        "x": 62,
+        "y": 64
+      },
+      {
+        "x": 149,
+        "y": 163
+      },
+      {
+        "x": 193,
+        "y": 198
+      },
+      {
+        "x": 224,
+        "y": 226
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "courbe_br7_PICCON02.NCP",
+    "name": "Courbe-BR7",
+    "sourcePath": "courbe_br7/PICCON02.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 27,
+        "y": 22
+      },
+      {
+        "x": 58,
+        "y": 57
+      },
+      {
+        "x": 108,
+        "y": 102
+      },
+      {
+        "x": 148,
+        "y": 151
+      },
+      {
+        "x": 170,
+        "y": 171
+      },
+      {
+        "x": 209,
+        "y": 208
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "courbe_br7_PICCON01.NCP",
+    "name": "Courbe-BR7-a",
+    "sourcePath": "courbe_br7/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 27,
+        "y": 22
+      },
+      {
+        "x": 58,
+        "y": 57
+      },
+      {
+        "x": 108,
+        "y": 102
+      },
+      {
+        "x": 148,
+        "y": 151
+      },
+      {
+        "x": 170,
+        "y": 171
+      },
+      {
+        "x": 209,
+        "y": 208
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PICCON12.NCP",
+    "name": "D2X-safe hi-lo bump",
+    "sourcePath": "PICCON12.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 19,
+        "y": 40
+      },
+      {
+        "x": 52,
+        "y": 81
+      },
+      {
+        "x": 107,
+        "y": 128
+      },
+      {
+        "x": 255,
+        "y": 234
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "1_ibecustompc_PICCON01.NCP",
+    "name": "D2XM1SIM",
+    "sourcePath": "1_ibecustompc/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 48,
+        "y": 63
+      },
+      {
+        "x": 109,
+        "y": 128
+      },
+      {
+        "x": 194,
+        "y": 205
+      },
+      {
+        "x": 255,
+        "y": 251
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": -4,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PicCon_campur2_PICCON13.NCP",
+    "name": "D3_Midtone",
+    "sourcePath": "PicCon_campur2/PICCON13.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 99,
+        "y": 120
+      },
+      {
+        "x": 141,
+        "y": 171
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 77,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "AlfireHighContrast_PICCON02.NCP",
+    "name": "DarkSepiaHC01",
+    "sourcePath": "AlfireHighContrast/PICCON02.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 4,
+        "y": 0
+      },
+      {
+        "x": 38,
+        "y": 40
+      },
+      {
+        "x": 72,
+        "y": 112
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "red",
+    "monoTone": {
+      "type": "sepia",
+      "density": 1
+    },
+    "toning": null
+  },
+  {
+    "id": "PicCon_campur2_PICCON19.NCP",
+    "name": "fashion",
+    "sourcePath": "PicCon_campur2/PICCON19.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 29,
+        "y": 0
+      },
+      {
+        "x": 153,
+        "y": 229
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -45,
+    "hue": 8,
+    "sharpening": 88,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON03.NCP",
+    "name": "Ferrania Solaris",
+    "sourcePath": "z_cptech/PICCON03.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 63,
+        "y": 58
+      },
+      {
+        "x": 90,
+        "y": 91
+      },
+      {
+        "x": 159,
+        "y": 173
+      },
+      {
+        "x": 249,
+        "y": 224
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 12,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "rafalglebowski-film_fkat_PICCON04.NCP",
+    "name": "Film_HighISO(6400)",
+    "sourcePath": "rafalglebowski-film_fkat/PICCON04.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 4,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "flaat_10p_11p_12p_PICCON10.NCP",
+    "name": "Flaat_10p",
+    "sourcePath": "flaat_10p_11p_12p/PICCON10.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 10,
+        "y": 17
+      },
+      {
+        "x": 25,
+        "y": 38
+      },
+      {
+        "x": 42,
+        "y": 56
+      },
+      {
+        "x": 71,
+        "y": 81
+      },
+      {
+        "x": 136,
+        "y": 136
+      },
+      {
+        "x": 196,
+        "y": 184
+      },
+      {
+        "x": 224,
+        "y": 213
+      },
+      {
+        "x": 236,
+        "y": 234
+      },
+      {
+        "x": 243,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 11,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "flaat_10p_11p_12p_PICCON11.NCP",
+    "name": "Flaat_11p",
+    "sourcePath": "flaat_10p_11p_12p/PICCON11.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 6,
+        "y": 15
+      },
+      {
+        "x": 29,
+        "y": 56
+      },
+      {
+        "x": 65,
+        "y": 92
+      },
+      {
+        "x": 117,
+        "y": 132
+      },
+      {
+        "x": 188,
+        "y": 182
+      },
+      {
+        "x": 222,
+        "y": 213
+      },
+      {
+        "x": 234,
+        "y": 232
+      },
+      {
+        "x": 243,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 11,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON12.NCP",
+    "name": "Flaat_11p-02",
+    "sourcePath": "!Atest/PICCON12.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 6,
+        "y": 15
+      },
+      {
+        "x": 29,
+        "y": 56
+      },
+      {
+        "x": 65,
+        "y": 92
+      },
+      {
+        "x": 117,
+        "y": 132
+      },
+      {
+        "x": 188,
+        "y": 182
+      },
+      {
+        "x": 222,
+        "y": 213
+      },
+      {
+        "x": 234,
+        "y": 232
+      },
+      {
+        "x": 243,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 11,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "flaat_10p_11p_12p_PICCON12.NCP",
+    "name": "Flaat_12p",
+    "sourcePath": "flaat_10p_11p_12p/PICCON12.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 4,
+        "y": 13
+      },
+      {
+        "x": 10,
+        "y": 33
+      },
+      {
+        "x": 19,
+        "y": 54
+      },
+      {
+        "x": 54,
+        "y": 98
+      },
+      {
+        "x": 109,
+        "y": 138
+      },
+      {
+        "x": 199,
+        "y": 197
+      },
+      {
+        "x": 219,
+        "y": 213
+      },
+      {
+        "x": 232,
+        "y": 232
+      },
+      {
+        "x": 243,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "D7000_film_simulation_PICCON15.NCP",
+    "name": "FLAT",
+    "sourcePath": "D7000_film_simulation/PICCON15.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 23
+      },
+      {
+        "x": 52,
+        "y": 50
+      },
+      {
+        "x": 111,
+        "y": 111
+      },
+      {
+        "x": 182,
+        "y": 175
+      },
+      {
+        "x": 226,
+        "y": 217
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": -8,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Fuji_PICCON02.NCP",
+    "name": "Fuji Astia",
+    "sourcePath": "Fuji/PICCON02.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 52,
+        "y": 53
+      },
+      {
+        "x": 169,
+        "y": 178
+      },
+      {
+        "x": 250,
+        "y": 245
+      },
+      {
+        "x": 252,
+        "y": 248
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON19.NCP",
+    "name": "Fuji Astia 200F",
+    "sourcePath": "z_cptech/PICCON19.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 52,
+        "y": 53
+      },
+      {
+        "x": 169,
+        "y": 178
+      },
+      {
+        "x": 250,
+        "y": 245
+      },
+      {
+        "x": 252,
+        "y": 248
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": -4,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON16.NCP",
+    "name": "Fuji Astia-02",
+    "sourcePath": "!Atest/PICCON16.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 52,
+        "y": 53
+      },
+      {
+        "x": 169,
+        "y": 178
+      },
+      {
+        "x": 250,
+        "y": 245
+      },
+      {
+        "x": 252,
+        "y": 248
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON17.NCP",
+    "name": "Fuji Astia-03",
+    "sourcePath": "!Atest/PICCON17.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 52,
+        "y": 53
+      },
+      {
+        "x": 169,
+        "y": 178
+      },
+      {
+        "x": 250,
+        "y": 245
+      },
+      {
+        "x": 252,
+        "y": 248
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Fuji_PICCON03.NCP",
+    "name": "Fuji Provia",
+    "sourcePath": "Fuji/PICCON03.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 47,
+        "y": 52
+      },
+      {
+        "x": 159,
+        "y": 181
+      },
+      {
+        "x": 191,
+        "y": 205
+      },
+      {
+        "x": 255,
+        "y": 246
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON18.NCP",
+    "name": "Fuji Provia 100F",
+    "sourcePath": "z_cptech/PICCON18.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 28,
+        "y": 37
+      },
+      {
+        "x": 62,
+        "y": 76
+      },
+      {
+        "x": 176,
+        "y": 198
+      },
+      {
+        "x": 221,
+        "y": 221
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Fuji_PICCON06.NCP",
+    "name": "Fuji SReala Skin  ",
+    "sourcePath": "Fuji/PICCON06.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 3
+      },
+      {
+        "x": 14,
+        "y": 20
+      },
+      {
+        "x": 34,
+        "y": 53
+      },
+      {
+        "x": 176,
+        "y": 196
+      },
+      {
+        "x": 255,
+        "y": 243
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Fuji_PICCON04.NCP",
+    "name": "Fuji Superia Reala",
+    "sourcePath": "Fuji/PICCON04.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 28,
+        "y": 37
+      },
+      {
+        "x": 62,
+        "y": 76
+      },
+      {
+        "x": 176,
+        "y": 198
+      },
+      {
+        "x": 221,
+        "y": 221
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON12.NCP",
+    "name": "Fuji Superia Reala",
+    "sourcePath": "z_cptech/PICCON12.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 28,
+        "y": 37
+      },
+      {
+        "x": 62,
+        "y": 76
+      },
+      {
+        "x": 176,
+        "y": 198
+      },
+      {
+        "x": 207,
+        "y": 219
+      },
+      {
+        "x": 255,
+        "y": 234
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 4,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Fuji_PICCON07.NCP",
+    "name": "Fuji Velvia",
+    "sourcePath": "Fuji/PICCON07.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 26,
+        "y": 31
+      },
+      {
+        "x": 58,
+        "y": 65
+      },
+      {
+        "x": 75,
+        "y": 86
+      },
+      {
+        "x": 138,
+        "y": 148
+      },
+      {
+        "x": 182,
+        "y": 188
+      },
+      {
+        "x": 201,
+        "y": 203
+      },
+      {
+        "x": 212,
+        "y": 213
+      },
+      {
+        "x": 243,
+        "y": 237
+      },
+      {
+        "x": 255,
+        "y": 247
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON17.NCP",
+    "name": "Fuji Velvia 100F",
+    "sourcePath": "z_cptech/PICCON17.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 24,
+        "y": 18
+      },
+      {
+        "x": 58,
+        "y": 65
+      },
+      {
+        "x": 75,
+        "y": 86
+      },
+      {
+        "x": 138,
+        "y": 159
+      },
+      {
+        "x": 182,
+        "y": 188
+      },
+      {
+        "x": 207,
+        "y": 203
+      },
+      {
+        "x": 213,
+        "y": 205
+      },
+      {
+        "x": 234,
+        "y": 230
+      },
+      {
+        "x": 255,
+        "y": 247
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": -4,
+    "sharpening": 44,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Fuji_PICCON08.NCP",
+    "name": "Fuji Velvia Neutral",
+    "sourcePath": "Fuji/PICCON08.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 26,
+        "y": 31
+      },
+      {
+        "x": 58,
+        "y": 65
+      },
+      {
+        "x": 75,
+        "y": 86
+      },
+      {
+        "x": 138,
+        "y": 148
+      },
+      {
+        "x": 182,
+        "y": 188
+      },
+      {
+        "x": 201,
+        "y": 203
+      },
+      {
+        "x": 212,
+        "y": 213
+      },
+      {
+        "x": 243,
+        "y": 237
+      },
+      {
+        "x": 255,
+        "y": 247
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 30,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Fuji_PICCON09.NCP",
+    "name": "Fuji Velvia Vivid",
+    "sourcePath": "Fuji/PICCON09.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 26,
+        "y": 31
+      },
+      {
+        "x": 58,
+        "y": 65
+      },
+      {
+        "x": 75,
+        "y": 86
+      },
+      {
+        "x": 138,
+        "y": 148
+      },
+      {
+        "x": 182,
+        "y": 188
+      },
+      {
+        "x": 201,
+        "y": 203
+      },
+      {
+        "x": 212,
+        "y": 213
+      },
+      {
+        "x": 243,
+        "y": 237
+      },
+      {
+        "x": 255,
+        "y": 247
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 44,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Fuji_PICCON16.NCP",
+    "name": "FUJI-SUPERIA",
+    "sourcePath": "Fuji/PICCON16.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 26,
+        "y": 31
+      },
+      {
+        "x": 58,
+        "y": 65
+      },
+      {
+        "x": 75,
+        "y": 86
+      },
+      {
+        "x": 138,
+        "y": 148
+      },
+      {
+        "x": 182,
+        "y": 188
+      },
+      {
+        "x": 201,
+        "y": 203
+      },
+      {
+        "x": 212,
+        "y": 213
+      },
+      {
+        "x": 243,
+        "y": 237
+      },
+      {
+        "x": 255,
+        "y": 247
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 4,
+    "sharpening": 66,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Hendrix_PICCON90.NCP",
+    "name": "Hendrix",
+    "sourcePath": "Hendrix/PICCON90.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 255
+      },
+      {
+        "x": 29,
+        "y": 0
+      },
+      {
+        "x": 63,
+        "y": 255
+      },
+      {
+        "x": 96,
+        "y": 0
+      },
+      {
+        "x": 128,
+        "y": 255
+      },
+      {
+        "x": 159,
+        "y": 0
+      },
+      {
+        "x": 192,
+        "y": 255
+      },
+      {
+        "x": 228,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 45,
+    "hue": 12,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "AlfireHighContrast_PICCON04.NCP",
+    "name": "HighContrastColour1",
+    "sourcePath": "AlfireHighContrast/PICCON04.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 40,
+        "y": 23
+      },
+      {
+        "x": 84,
+        "y": 88
+      },
+      {
+        "x": 133,
+        "y": 129
+      },
+      {
+        "x": 152,
+        "y": 156
+      },
+      {
+        "x": 255,
+        "y": 245
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 30,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "AlfireHighContrast_PICCON03.NCP",
+    "name": "HighContrastColour2",
+    "sourcePath": "AlfireHighContrast/PICCON03.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 32,
+        "y": 0
+      },
+      {
+        "x": 114,
+        "y": 86
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 45,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON29.NCP",
+    "name": "Kamiyu-PT",
+    "sourcePath": "z_cptech/PICCON29.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 30,
+        "y": 36
+      },
+      {
+        "x": 104,
+        "y": 136
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": -4,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON01.NCP",
+    "name": "Kodak E100 VS",
+    "sourcePath": "z_cptech/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 40,
+        "y": 42
+      },
+      {
+        "x": 89,
+        "y": 115
+      },
+      {
+        "x": 131,
+        "y": 159
+      },
+      {
+        "x": 191,
+        "y": 204
+      },
+      {
+        "x": 225,
+        "y": 225
+      },
+      {
+        "x": 244,
+        "y": 238
+      },
+      {
+        "x": 252,
+        "y": 249
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 4,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Kodak_PICCON09.NCP",
+    "name": "Kodak Ektachrome",
+    "sourcePath": "Kodak/PICCON09.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 29,
+        "y": 6
+      },
+      {
+        "x": 61,
+        "y": 26
+      },
+      {
+        "x": 86,
+        "y": 58
+      },
+      {
+        "x": 127,
+        "y": 127
+      },
+      {
+        "x": 199,
+        "y": 229
+      },
+      {
+        "x": 223,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Kodak_PICCON10.NCP",
+    "name": "Kodak Ektachrome P",
+    "sourcePath": "Kodak/PICCON10.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 25,
+        "y": 7
+      },
+      {
+        "x": 49,
+        "y": 23
+      },
+      {
+        "x": 74,
+        "y": 54
+      },
+      {
+        "x": 127,
+        "y": 127
+      },
+      {
+        "x": 207,
+        "y": 230
+      },
+      {
+        "x": 230,
+        "y": 245
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON35.NCP",
+    "name": "Kodak Ektachrome-02",
+    "sourcePath": "!Atest/PICCON35.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 29,
+        "y": 6
+      },
+      {
+        "x": 61,
+        "y": 26
+      },
+      {
+        "x": 86,
+        "y": 58
+      },
+      {
+        "x": 127,
+        "y": 127
+      },
+      {
+        "x": 199,
+        "y": 229
+      },
+      {
+        "x": 223,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON09.NCP",
+    "name": "Kodak EliteChrome",
+    "sourcePath": "z_cptech/PICCON09.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 29,
+        "y": 6
+      },
+      {
+        "x": 61,
+        "y": 26
+      },
+      {
+        "x": 86,
+        "y": 58
+      },
+      {
+        "x": 127,
+        "y": 127
+      },
+      {
+        "x": 199,
+        "y": 229
+      },
+      {
+        "x": 223,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 4,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON15.NCP",
+    "name": "Kodak Gold 100",
+    "sourcePath": "z_cptech/PICCON15.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 33,
+        "y": 24
+      },
+      {
+        "x": 64,
+        "y": 64
+      },
+      {
+        "x": 92,
+        "y": 104
+      },
+      {
+        "x": 128,
+        "y": 148
+      },
+      {
+        "x": 163,
+        "y": 186
+      },
+      {
+        "x": 188,
+        "y": 213
+      },
+      {
+        "x": 222,
+        "y": 228
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 4,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Kodak_PICCON08.NCP",
+    "name": "Kodak Kodachrome 2",
+    "sourcePath": "Kodak/PICCON08.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 33,
+        "y": 24
+      },
+      {
+        "x": 64,
+        "y": 64
+      },
+      {
+        "x": 92,
+        "y": 104
+      },
+      {
+        "x": 128,
+        "y": 148
+      },
+      {
+        "x": 166,
+        "y": 166
+      },
+      {
+        "x": 207,
+        "y": 192
+      },
+      {
+        "x": 229,
+        "y": 217
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 0,
+    "sharpening": 11,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON04.NCP",
+    "name": "Kodak Portra 160NC",
+    "sourcePath": "z_cptech/PICCON04.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 35,
+        "y": 24
+      },
+      {
+        "x": 109,
+        "y": 129
+      },
+      {
+        "x": 163,
+        "y": 182
+      },
+      {
+        "x": 251,
+        "y": 226
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Kodak_PICCON12.NCP",
+    "name": "Kodak Portra Mono",
+    "sourcePath": "Kodak/PICCON12.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 52,
+        "y": 50
+      },
+      {
+        "x": 109,
+        "y": 109
+      },
+      {
+        "x": 182,
+        "y": 175
+      },
+      {
+        "x": 222,
+        "y": 213
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Kodak_PICCON14.NCP",
+    "name": "Kodak Portra NC",
+    "sourcePath": "Kodak/PICCON14.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 52,
+        "y": 50
+      },
+      {
+        "x": 109,
+        "y": 109
+      },
+      {
+        "x": 182,
+        "y": 175
+      },
+      {
+        "x": 222,
+        "y": 213
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON16.NCP",
+    "name": "Kodak T-Max 400",
+    "sourcePath": "z_cptech/PICCON16.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 26,
+        "y": 28
+      },
+      {
+        "x": 77,
+        "y": 66
+      },
+      {
+        "x": 150,
+        "y": 146
+      },
+      {
+        "x": 226,
+        "y": 243
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "yellow",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON31.NCP",
+    "name": "KodakEliteChrome-g1",
+    "sourcePath": "!Atest/PICCON31.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 29,
+        "y": 6
+      },
+      {
+        "x": 61,
+        "y": 26
+      },
+      {
+        "x": 86,
+        "y": 58
+      },
+      {
+        "x": 127,
+        "y": 127
+      },
+      {
+        "x": 199,
+        "y": 229
+      },
+      {
+        "x": 223,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 4,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON02.NCP",
+    "name": "Konica Centuria 100",
+    "sourcePath": "z_cptech/PICCON02.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 52,
+        "y": 53
+      },
+      {
+        "x": 169,
+        "y": 178
+      },
+      {
+        "x": 250,
+        "y": 245
+      },
+      {
+        "x": 252,
+        "y": 248
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": -12,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "MASH_PictureControl_Sets_NIKON_1304_PICCON01.NCP",
+    "name": "MASH_01",
+    "sourcePath": "MASH_PictureControl_Sets_NIKON_1304/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 10,
+        "y": 17
+      },
+      {
+        "x": 25,
+        "y": 38
+      },
+      {
+        "x": 42,
+        "y": 62
+      },
+      {
+        "x": 71,
+        "y": 81
+      },
+      {
+        "x": 99,
+        "y": 99
+      },
+      {
+        "x": 136,
+        "y": 136
+      },
+      {
+        "x": 196,
+        "y": 184
+      },
+      {
+        "x": 222,
+        "y": 209
+      },
+      {
+        "x": 236,
+        "y": 234
+      },
+      {
+        "x": 243,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 11,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "MASH_PictureControl_Sets_NIKON_1304_PICCON02.NCP",
+    "name": "MASH_02",
+    "sourcePath": "MASH_PictureControl_Sets_NIKON_1304/PICCON02.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 6,
+        "y": 15
+      },
+      {
+        "x": 29,
+        "y": 56
+      },
+      {
+        "x": 65,
+        "y": 92
+      },
+      {
+        "x": 117,
+        "y": 132
+      },
+      {
+        "x": 165,
+        "y": 160
+      },
+      {
+        "x": 188,
+        "y": 182
+      },
+      {
+        "x": 222,
+        "y": 213
+      },
+      {
+        "x": 234,
+        "y": 232
+      },
+      {
+        "x": 243,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 0,
+    "sharpening": 11,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "MASH_PictureControl_Sets_NIKON_1304_PICCON03.NCP",
+    "name": "MASH_ENG",
+    "sourcePath": "MASH_PictureControl_Sets_NIKON_1304/PICCON03.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 6,
+        "y": 15
+      },
+      {
+        "x": 29,
+        "y": 56
+      },
+      {
+        "x": 65,
+        "y": 92
+      },
+      {
+        "x": 108,
+        "y": 138
+      },
+      {
+        "x": 182,
+        "y": 187
+      },
+      {
+        "x": 220,
+        "y": 218
+      },
+      {
+        "x": 234,
+        "y": 232
+      },
+      {
+        "x": 243,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 0,
+    "sharpening": 11,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "1_ibecustompc_PICCON02.NCP",
+    "name": "MICROCTR",
+    "sourcePath": "1_ibecustompc/PICCON02.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 25,
+        "y": 13
+      },
+      {
+        "x": 48,
+        "y": 40
+      },
+      {
+        "x": 65,
+        "y": 54
+      },
+      {
+        "x": 128,
+        "y": 128
+      },
+      {
+        "x": 150,
+        "y": 153
+      },
+      {
+        "x": 167,
+        "y": 178
+      },
+      {
+        "x": 192,
+        "y": 199
+      },
+      {
+        "x": 215,
+        "y": 219
+      },
+      {
+        "x": 238,
+        "y": 243
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Milk_PICCON01.NCP",
+    "name": "milk",
+    "sourcePath": "Milk/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 8,
+        "y": 27
+      },
+      {
+        "x": 31,
+        "y": 65
+      },
+      {
+        "x": 125,
+        "y": 127
+      },
+      {
+        "x": 197,
+        "y": 171
+      },
+      {
+        "x": 243,
+        "y": 236
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": -8,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "AAmono-test_PICCON01.NCP",
+    "name": "Mono-no_eff-bw",
+    "sourcePath": "!AAmono-test/PICCON01.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "AAmono-test_PICCON02.NCP",
+    "name": "Mono-no_eff-serp1",
+    "sourcePath": "!AAmono-test/PICCON02.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": {
+      "type": "sepia",
+      "density": 1
+    },
+    "toning": null
+  },
+  {
+    "id": "AAmono-test_PICCON03.NCP",
+    "name": "Mono-no_eff-serp4",
+    "sourcePath": "!AAmono-test/PICCON03.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": {
+      "type": "sepia",
+      "density": 4
+    },
+    "toning": null
+  },
+  {
+    "id": "AAmono-test_PICCON04.NCP",
+    "name": "Mono-no_eff-serp7",
+    "sourcePath": "!AAmono-test/PICCON04.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": {
+      "type": "sepia",
+      "density": 7
+    },
+    "toning": null
+  },
+  {
+    "id": "AlfireHighContrast_PICCON01.NCP",
+    "name": "MonoHC01",
+    "sourcePath": "AlfireHighContrast/PICCON01.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 38,
+        "y": 34
+      },
+      {
+        "x": 80,
+        "y": 114
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "red",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PicCon_campur2_PICCON18.NCP",
+    "name": "movie-tast",
+    "sourcePath": "PicCon_campur2/PICCON18.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -45,
+    "hue": -4,
+    "sharpening": 99,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PICCON22.NCP",
+    "name": "N Rose Curve",
+    "sourcePath": "PICCON22.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 46,
+        "y": 59
+      },
+      {
+        "x": 132,
+        "y": 123
+      },
+      {
+        "x": 194,
+        "y": 167
+      },
+      {
+        "x": 255,
+        "y": 226
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "D7000_film_simulation_PICCON10.NCP",
+    "name": "NEOPAN",
+    "sourcePath": "D7000_film_simulation/PICCON10.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 56,
+        "y": 7
+      },
+      {
+        "x": 88,
+        "y": 33
+      },
+      {
+        "x": 123,
+        "y": 74
+      },
+      {
+        "x": 202,
+        "y": 217
+      },
+      {
+        "x": 210,
+        "y": 223
+      },
+      {
+        "x": 221,
+        "y": 232
+      },
+      {
+        "x": 232,
+        "y": 240
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 66,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Profile_Gamma_Nikon_PICCON57.NCP",
+    "name": "Neutral Gamma 0.4",
+    "sourcePath": "Profile_Gamma_Nikon/PICCON57.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Profile_Gamma_Nikon_PICCON56.NCP",
+    "name": "Neutral Gamma 0.5",
+    "sourcePath": "Profile_Gamma_Nikon/PICCON56.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Profile_Gamma_Nikon_PICCON55.NCP",
+    "name": "Neutral Gamma 0.6",
+    "sourcePath": "Profile_Gamma_Nikon/PICCON55.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Profile_Gamma_Nikon_PICCON54.NCP",
+    "name": "Neutral Gamma 0.7",
+    "sourcePath": "Profile_Gamma_Nikon/PICCON54.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Profile_Gamma_Nikon_PICCON53.NCP",
+    "name": "Neutral Gamma 0.8",
+    "sourcePath": "Profile_Gamma_Nikon/PICCON53.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Profile_Gamma_Nikon_PICCON52.NCP",
+    "name": "Neutral Gamma 0.9",
+    "sourcePath": "Profile_Gamma_Nikon/PICCON52.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Profile_Gamma_Nikon_PICCON51.NCP",
+    "name": "Neutral Gamma 1.0",
+    "sourcePath": "Profile_Gamma_Nikon/PICCON51.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "APX100_PICCON03.NCP",
+    "name": "Nik1V1-APX100",
+    "sourcePath": "APX100/PICCON03.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 2
+      },
+      {
+        "x": 27,
+        "y": 29
+      },
+      {
+        "x": 54,
+        "y": 66
+      },
+      {
+        "x": 88,
+        "y": 112
+      },
+      {
+        "x": 127,
+        "y": 152
+      },
+      {
+        "x": 165,
+        "y": 188
+      },
+      {
+        "x": 192,
+        "y": 209
+      },
+      {
+        "x": 224,
+        "y": 233
+      },
+      {
+        "x": 255,
+        "y": 253
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "yellow",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "unsort_PICCON02.NCP",
+    "name": "Nik1V1-HP5",
+    "sourcePath": "unsort/PICCON02.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 42,
+        "y": 36
+      },
+      {
+        "x": 63,
+        "y": 73
+      },
+      {
+        "x": 128,
+        "y": 171
+      },
+      {
+        "x": 192,
+        "y": 230
+      },
+      {
+        "x": 209,
+        "y": 240
+      },
+      {
+        "x": 224,
+        "y": 245
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "MASH_PictureControl_Sets_NIKON_1304_PICCON04.NCP",
+    "name": "Nikon_D3s_look",
+    "sourcePath": "MASH_PictureControl_Sets_NIKON_1304/PICCON04.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 71,
+        "y": 67
+      },
+      {
+        "x": 186,
+        "y": 192
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 4,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON21.NCP",
+    "name": "nl_s0",
+    "sourcePath": "!Atest/PICCON21.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON22.NCP",
+    "name": "nl_s1",
+    "sourcePath": "!Atest/PICCON22.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 11,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON23.NCP",
+    "name": "nl_s2",
+    "sourcePath": "!Atest/PICCON23.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON24.NCP",
+    "name": "nl_s3",
+    "sourcePath": "!Atest/PICCON24.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON25.NCP",
+    "name": "nl_s4",
+    "sourcePath": "!Atest/PICCON25.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 44,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON26.NCP",
+    "name": "nl_s5",
+    "sourcePath": "!Atest/PICCON26.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON27.NCP",
+    "name": "nl_s6",
+    "sourcePath": "!Atest/PICCON27.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 66,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON28.NCP",
+    "name": "nl_s7",
+    "sourcePath": "!Atest/PICCON28.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 77,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON29.NCP",
+    "name": "nl_s8",
+    "sourcePath": "!Atest/PICCON29.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 88,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON30.NCP",
+    "name": "nl_s9",
+    "sourcePath": "!Atest/PICCON30.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 99,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PICCON04.NCP",
+    "name": "P&S 2",
+    "sourcePath": "PICCON04.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 75,
+        "y": 123
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 30,
+    "hue": 0,
+    "sharpening": 66,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PicCon_campur2_PENTAK-K20D.NCP",
+    "name": "Pentax K20D Mode",
+    "sourcePath": "PicCon_campur2/PENTAK-K20D.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 66,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Photogenic_PnS_PICCON20.NCP",
+    "name": "Photogenic PnS",
+    "sourcePath": "Photogenic PnS/PICCON20.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 45,
+        "y": 64
+      },
+      {
+        "x": 90,
+        "y": 128
+      },
+      {
+        "x": 156,
+        "y": 191
+      },
+      {
+        "x": 255,
+        "y": 224
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Photographio_s_Cineflat_PICCON01.NCP",
+    "name": "PhotoIO Cineflat",
+    "sourcePath": "Photographio's_Cineflat/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 10,
+        "y": 40
+      },
+      {
+        "x": 25,
+        "y": 76
+      },
+      {
+        "x": 44,
+        "y": 95
+      },
+      {
+        "x": 64,
+        "y": 109
+      },
+      {
+        "x": 129,
+        "y": 147
+      },
+      {
+        "x": 195,
+        "y": 189
+      },
+      {
+        "x": 233,
+        "y": 215
+      },
+      {
+        "x": 247,
+        "y": 235
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "1_ibecustompc_PICCON03.NCP",
+    "name": "PORTD2XM1",
+    "sourcePath": "1_ibecustompc/PICCON03.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 62,
+        "y": 77
+      },
+      {
+        "x": 127,
+        "y": 147
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "2_D2XPICCTL_PICCON02.NCP",
+    "name": "PORTD2XM1c",
+    "sourcePath": "2_D2XPICCTL/PICCON02.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 62,
+        "y": 77
+      },
+      {
+        "x": 127,
+        "y": 147
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "2_D2XPICCTL_PICCON03.NCP",
+    "name": "PORTD2XM1h",
+    "sourcePath": "2_D2XPICCTL/PICCON03.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 62,
+        "y": 77
+      },
+      {
+        "x": 127,
+        "y": 147
+      },
+      {
+        "x": 255,
+        "y": 245
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "2_D2XPICCTL_PICCON04.NCP",
+    "name": "PORTD2XM1s",
+    "sourcePath": "2_D2XPICCTL/PICCON04.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 62,
+        "y": 77
+      },
+      {
+        "x": 127,
+        "y": 147
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "2_D2XPICCTL_PICCON05.NCP",
+    "name": "PORTD2XM1v",
+    "sourcePath": "2_D2XPICCTL/PICCON05.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 62,
+        "y": 77
+      },
+      {
+        "x": 127,
+        "y": 147
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 45,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "D7000_film_simulation_PICCON09.NCP",
+    "name": "PORTRA",
+    "sourcePath": "D7000_film_simulation/PICCON09.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 52,
+        "y": 50
+      },
+      {
+        "x": 109,
+        "y": 109
+      },
+      {
+        "x": 182,
+        "y": 175
+      },
+      {
+        "x": 222,
+        "y": 213
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PicCon_campur2_PICCON07.NCP",
+    "name": "Portra NC",
+    "sourcePath": "PicCon_campur2/PICCON07.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 52,
+        "y": 50
+      },
+      {
+        "x": 109,
+        "y": 109
+      },
+      {
+        "x": 182,
+        "y": 175
+      },
+      {
+        "x": 222,
+        "y": 213
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "D7000_film_simulation_PICCON07.NCP",
+    "name": "PROVIA",
+    "sourcePath": "D7000_film_simulation/PICCON07.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 29,
+        "y": 44
+      },
+      {
+        "x": 114,
+        "y": 104
+      },
+      {
+        "x": 182,
+        "y": 175
+      },
+      {
+        "x": 222,
+        "y": 213
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": -4,
+    "sharpening": 11,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON24.NCP",
+    "name": "PT mode1",
+    "sourcePath": "z_cptech/PICCON24.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 81,
+        "y": 108
+      },
+      {
+        "x": 132,
+        "y": 149
+      },
+      {
+        "x": 192,
+        "y": 190
+      },
+      {
+        "x": 227,
+        "y": 219
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": -8,
+    "sharpening": 44,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON23.NCP",
+    "name": "PT mode1N",
+    "sourcePath": "z_cptech/PICCON23.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 79,
+        "y": 107
+      },
+      {
+        "x": 133,
+        "y": 148
+      },
+      {
+        "x": 193,
+        "y": 188
+      },
+      {
+        "x": 230,
+        "y": 215
+      },
+      {
+        "x": 255,
+        "y": 251
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": -8,
+    "sharpening": 44,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON25.NCP",
+    "name": "PT mode2",
+    "sourcePath": "z_cptech/PICCON25.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 42,
+        "y": 57
+      },
+      {
+        "x": 82,
+        "y": 103
+      },
+      {
+        "x": 131,
+        "y": 149
+      },
+      {
+        "x": 190,
+        "y": 190
+      },
+      {
+        "x": 225,
+        "y": 219
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": -8,
+    "sharpening": 44,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PICCON15.NCP",
+    "name": "Rose Curve",
+    "sourcePath": "PICCON15.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 46,
+        "y": 59
+      },
+      {
+        "x": 128,
+        "y": 125
+      },
+      {
+        "x": 194,
+        "y": 167
+      },
+      {
+        "x": 255,
+        "y": 253
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 30,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON14.NCP",
+    "name": "Rose Curve-s0",
+    "sourcePath": "!Atest/PICCON14.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 46,
+        "y": 59
+      },
+      {
+        "x": 128,
+        "y": 125
+      },
+      {
+        "x": 194,
+        "y": 167
+      },
+      {
+        "x": 255,
+        "y": 253
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PICCON16.NCP",
+    "name": "S Minus",
+    "sourcePath": "PICCON16.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 27,
+        "y": 35
+      },
+      {
+        "x": 65,
+        "y": 61
+      },
+      {
+        "x": 128,
+        "y": 100
+      },
+      {
+        "x": 197,
+        "y": 157
+      },
+      {
+        "x": 236,
+        "y": 209
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 30,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PICCON17.NCP",
+    "name": "S Plus",
+    "sourcePath": "PICCON17.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 38,
+        "y": 73
+      },
+      {
+        "x": 77,
+        "y": 123
+      },
+      {
+        "x": 130,
+        "y": 159
+      },
+      {
+        "x": 192,
+        "y": 196
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 30,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PICCON14.NCP",
+    "name": "S SafeHi-LoBoost",
+    "sourcePath": "PICCON14.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 19,
+        "y": 40
+      },
+      {
+        "x": 52,
+        "y": 81
+      },
+      {
+        "x": 107,
+        "y": 128
+      },
+      {
+        "x": 255,
+        "y": 234
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Fujifilm_S5Pro_PICCON01.NCP",
+    "name": "S5Pro_F1a",
+    "sourcePath": "Fujifilm S5Pro/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 21,
+        "y": 16
+      },
+      {
+        "x": 52,
+        "y": 50
+      },
+      {
+        "x": 109,
+        "y": 109
+      },
+      {
+        "x": 182,
+        "y": 176
+      },
+      {
+        "x": 205,
+        "y": 197
+      },
+      {
+        "x": 222,
+        "y": 213
+      },
+      {
+        "x": 242,
+        "y": 235
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON05.NCP",
+    "name": "SHING FineSkinTone",
+    "sourcePath": "z_cptech/PICCON05.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 28,
+        "y": 19
+      },
+      {
+        "x": 48,
+        "y": 53
+      },
+      {
+        "x": 76,
+        "y": 77
+      },
+      {
+        "x": 143,
+        "y": 155
+      },
+      {
+        "x": 179,
+        "y": 182
+      },
+      {
+        "x": 225,
+        "y": 232
+      },
+      {
+        "x": 255,
+        "y": 247
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -30,
+    "hue": 8,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON11.NCP",
+    "name": "SHING HalfGraphic",
+    "sourcePath": "z_cptech/PICCON11.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 13,
+        "y": 91
+      },
+      {
+        "x": 28,
+        "y": 19
+      },
+      {
+        "x": 47,
+        "y": 39
+      },
+      {
+        "x": 127,
+        "y": 150
+      },
+      {
+        "x": 181,
+        "y": 208
+      },
+      {
+        "x": 222,
+        "y": 229
+      },
+      {
+        "x": 253,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON13.NCP",
+    "name": "SHING NegativeFilm",
+    "sourcePath": "z_cptech/PICCON13.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 255
+      },
+      {
+        "x": 255,
+        "y": 0
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -45,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON10.NCP",
+    "name": "SHING Nostalgia",
+    "sourcePath": "z_cptech/PICCON10.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 40,
+        "y": 42
+      },
+      {
+        "x": 89,
+        "y": 115
+      },
+      {
+        "x": 131,
+        "y": 159
+      },
+      {
+        "x": 191,
+        "y": 204
+      },
+      {
+        "x": 225,
+        "y": 225
+      },
+      {
+        "x": 244,
+        "y": 238
+      },
+      {
+        "x": 252,
+        "y": 249
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "green",
+    "monoTone": {
+      "type": "yellow",
+      "density": 3
+    },
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON07.NCP",
+    "name": "SHING TitanicTone",
+    "sourcePath": "z_cptech/PICCON07.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 21,
+        "y": 15
+      },
+      {
+        "x": 52,
+        "y": 48
+      },
+      {
+        "x": 73,
+        "y": 84
+      },
+      {
+        "x": 119,
+        "y": 143
+      },
+      {
+        "x": 184,
+        "y": 206
+      },
+      {
+        "x": 224,
+        "y": 235
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 30,
+    "hue": -12,
+    "sharpening": 44,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON06.NCP",
+    "name": "SHING TokugawaTone",
+    "sourcePath": "z_cptech/PICCON06.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 85
+      },
+      {
+        "x": 63,
+        "y": 98
+      },
+      {
+        "x": 125,
+        "y": 194
+      },
+      {
+        "x": 188,
+        "y": 224
+      },
+      {
+        "x": 249,
+        "y": 232
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "red",
+    "monoTone": {
+      "type": "yellow",
+      "density": 2
+    },
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON32.NCP",
+    "name": "SHING TokugawaTone1",
+    "sourcePath": "!Atest/PICCON32.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 85
+      },
+      {
+        "x": 63,
+        "y": 98
+      },
+      {
+        "x": 125,
+        "y": 194
+      },
+      {
+        "x": 188,
+        "y": 224
+      },
+      {
+        "x": 249,
+        "y": 232
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "red",
+    "monoTone": {
+      "type": "yellow",
+      "density": 2
+    },
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON33.NCP",
+    "name": "SHING TokugawaTone2",
+    "sourcePath": "!Atest/PICCON33.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 85
+      },
+      {
+        "x": 63,
+        "y": 98
+      },
+      {
+        "x": 125,
+        "y": 194
+      },
+      {
+        "x": 188,
+        "y": 224
+      },
+      {
+        "x": 249,
+        "y": 232
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "red",
+    "monoTone": {
+      "type": "yellow",
+      "density": 2
+    },
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON39.NCP",
+    "name": "SHING TokugawaTone3",
+    "sourcePath": "!Atest/PICCON39.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 85
+      },
+      {
+        "x": 63,
+        "y": 98
+      },
+      {
+        "x": 125,
+        "y": 194
+      },
+      {
+        "x": 188,
+        "y": 224
+      },
+      {
+        "x": 249,
+        "y": 232
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "red",
+    "monoTone": {
+      "type": "yellow",
+      "density": 2
+    },
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON40.NCP",
+    "name": "SHING TokugawaTone4",
+    "sourcePath": "!Atest/PICCON40.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 85
+      },
+      {
+        "x": 63,
+        "y": 98
+      },
+      {
+        "x": 125,
+        "y": 194
+      },
+      {
+        "x": 188,
+        "y": 224
+      },
+      {
+        "x": 249,
+        "y": 232
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "red",
+    "monoTone": {
+      "type": "yellow",
+      "density": 2
+    },
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON14.NCP",
+    "name": "SHING TokyoTone",
+    "sourcePath": "z_cptech/PICCON14.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 2,
+        "y": 0
+      },
+      {
+        "x": 25,
+        "y": 33
+      },
+      {
+        "x": 46,
+        "y": 69
+      },
+      {
+        "x": 92,
+        "y": 127
+      },
+      {
+        "x": 167,
+        "y": 197
+      },
+      {
+        "x": 203,
+        "y": 230
+      },
+      {
+        "x": 255,
+        "y": 243
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": -4,
+    "sharpening": 99,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "D7000_film_simulation_PICCON08.NCP",
+    "name": "SPOOJI",
+    "sourcePath": "D7000_film_simulation/PICCON08.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 56,
+        "y": 7
+      },
+      {
+        "x": 88,
+        "y": 33
+      },
+      {
+        "x": 123,
+        "y": 74
+      },
+      {
+        "x": 197,
+        "y": 221
+      },
+      {
+        "x": 209,
+        "y": 236
+      },
+      {
+        "x": 226,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 99,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PicCon_campur2_PICCON05.NCP",
+    "name": "sReala",
+    "sourcePath": "PicCon_campur2/PICCON05.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 3
+      },
+      {
+        "x": 14,
+        "y": 19
+      },
+      {
+        "x": 32,
+        "y": 43
+      },
+      {
+        "x": 171,
+        "y": 199
+      },
+      {
+        "x": 203,
+        "y": 216
+      },
+      {
+        "x": 255,
+        "y": 243
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PicCon_campur2_PICCON06.NCP",
+    "name": "sReala2",
+    "sourcePath": "PicCon_campur2/PICCON06.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 3
+      },
+      {
+        "x": 14,
+        "y": 20
+      },
+      {
+        "x": 34,
+        "y": 53
+      },
+      {
+        "x": 176,
+        "y": 196
+      },
+      {
+        "x": 255,
+        "y": 243
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON03.NCP",
+    "name": "st_g1.2",
+    "sourcePath": "!Atest/PICCON03.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON04.NCP",
+    "name": "st_g1.47",
+    "sourcePath": "!Atest/PICCON04.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON05.NCP",
+    "name": "st_ln_s0",
+    "sourcePath": "!Atest/PICCON05.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON06.NCP",
+    "name": "st_ln_s2",
+    "sourcePath": "!Atest/PICCON06.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 30,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON48.NCP",
+    "name": "st2p",
+    "sourcePath": "!Atest/PICCON48.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 63,
+        "y": 50
+      },
+      {
+        "x": 194,
+        "y": 173
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON01.NCP",
+    "name": "st2p",
+    "sourcePath": "!Atest/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 63,
+        "y": 50
+      },
+      {
+        "x": 194,
+        "y": 173
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON44.NCP",
+    "name": "st3p",
+    "sourcePath": "!Atest/PICCON44.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 63,
+        "y": 50
+      },
+      {
+        "x": 107,
+        "y": 123
+      },
+      {
+        "x": 194,
+        "y": 173
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON49.NCP",
+    "name": "Std_1p_63x63",
+    "sourcePath": "!Atest/PICCON49.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 63,
+        "y": 63
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON50.NCP",
+    "name": "Std_1p_63x63-02",
+    "sourcePath": "!Atest/PICCON50.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 63,
+        "y": 63
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "TassinFlat_LUT_PICCON19.NCP",
+    "name": "TassinFlat",
+    "sourcePath": "TassinFlat+LUT/PICCON19.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 9,
+        "y": 24
+      },
+      {
+        "x": 66,
+        "y": 101
+      },
+      {
+        "x": 132,
+        "y": 149
+      },
+      {
+        "x": 196,
+        "y": 191
+      },
+      {
+        "x": 240,
+        "y": 229
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PICCON10.NCP",
+    "name": "ThomMore",
+    "sourcePath": "PICCON10.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 43,
+        "y": 60
+      },
+      {
+        "x": 192,
+        "y": 187
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 30,
+    "hue": 0,
+    "sharpening": 66,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "D7000_film_simulation_PICCON11.NCP",
+    "name": "TMAX",
+    "sourcePath": "D7000_film_simulation/PICCON11.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 23,
+        "y": 18
+      },
+      {
+        "x": 49,
+        "y": 35
+      },
+      {
+        "x": 73,
+        "y": 58
+      },
+      {
+        "x": 127,
+        "y": 127
+      },
+      {
+        "x": 207,
+        "y": 230
+      },
+      {
+        "x": 230,
+        "y": 245
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PicCon_campur2_PICCON11.NCP",
+    "name": "Top Gear",
+    "sourcePath": "PicCon_campur2/PICCON11.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 56,
+        "y": 7
+      },
+      {
+        "x": 88,
+        "y": 33
+      },
+      {
+        "x": 123,
+        "y": 74
+      },
+      {
+        "x": 197,
+        "y": 221
+      },
+      {
+        "x": 209,
+        "y": 236
+      },
+      {
+        "x": 226,
+        "y": 247
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 44,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Tri-X_PICCON01.NCP",
+    "name": "Tri-X",
+    "sourcePath": "Tri-X/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 64,
+        "y": 88
+      },
+      {
+        "x": 125,
+        "y": 161
+      },
+      {
+        "x": 171,
+        "y": 211
+      },
+      {
+        "x": 204,
+        "y": 240
+      },
+      {
+        "x": 230,
+        "y": 251
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Tri-X_PICCON02.NCP",
+    "name": "Tri-X B&W",
+    "sourcePath": "Tri-X/PICCON02.NCP",
+    "mode": "monochrome",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 64,
+        "y": 88
+      },
+      {
+        "x": 125,
+        "y": 161
+      },
+      {
+        "x": 171,
+        "y": 211
+      },
+      {
+        "x": 204,
+        "y": 240
+      },
+      {
+        "x": 230,
+        "y": 251
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 33,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Ultralight_PICCON90.NCP",
+    "name": "ultralight",
+    "sourcePath": "Ultralight/PICCON90.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 13,
+        "y": 94
+      },
+      {
+        "x": 40,
+        "y": 151
+      },
+      {
+        "x": 159,
+        "y": 217
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Atest_PICCON38.NCP",
+    "name": "ultralight-02",
+    "sourcePath": "!Atest/PICCON38.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 13,
+        "y": 94
+      },
+      {
+        "x": 40,
+        "y": 151
+      },
+      {
+        "x": 159,
+        "y": 217
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PICCON24.NCP",
+    "name": "V Rose rose curve",
+    "sourcePath": "PICCON24.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 46,
+        "y": 59
+      },
+      {
+        "x": 132,
+        "y": 123
+      },
+      {
+        "x": 194,
+        "y": 167
+      },
+      {
+        "x": 255,
+        "y": 226
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 44,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "LucaPeratella-Velvet_PICCON01.NCP",
+    "name": "Velvet",
+    "sourcePath": "LucaPeratella-Velvet/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 26,
+        "y": 31
+      },
+      {
+        "x": 58,
+        "y": 65
+      },
+      {
+        "x": 75,
+        "y": 86
+      },
+      {
+        "x": 138,
+        "y": 148
+      },
+      {
+        "x": 182,
+        "y": 188
+      },
+      {
+        "x": 201,
+        "y": 203
+      },
+      {
+        "x": 212,
+        "y": 213
+      },
+      {
+        "x": 243,
+        "y": 237
+      },
+      {
+        "x": 255,
+        "y": 247
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 0,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "VH_PseudoLog_PICCON01.NCP",
+    "name": "VH PseudoLog D700",
+    "sourcePath": "VH PseudoLog/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 5,
+        "y": 14
+      },
+      {
+        "x": 11,
+        "y": 28
+      },
+      {
+        "x": 19,
+        "y": 40
+      },
+      {
+        "x": 26,
+        "y": 52
+      },
+      {
+        "x": 36,
+        "y": 63
+      },
+      {
+        "x": 49,
+        "y": 75
+      },
+      {
+        "x": 66,
+        "y": 90
+      },
+      {
+        "x": 86,
+        "y": 105
+      },
+      {
+        "x": 105,
+        "y": 118
+      },
+      {
+        "x": 131,
+        "y": 135
+      },
+      {
+        "x": 157,
+        "y": 151
+      },
+      {
+        "x": 182,
+        "y": 167
+      },
+      {
+        "x": 201,
+        "y": 179
+      },
+      {
+        "x": 218,
+        "y": 190
+      },
+      {
+        "x": 231,
+        "y": 201
+      },
+      {
+        "x": 240,
+        "y": 210
+      },
+      {
+        "x": 247,
+        "y": 222
+      },
+      {
+        "x": 252,
+        "y": 233
+      },
+      {
+        "x": 255,
+        "y": 243
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": -4,
+    "sharpening": 66,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "VH_PseudoLog1_PICCON02.NCP",
+    "name": "VH PseudoLog D7100",
+    "sourcePath": "VH PseudoLog1/PICCON02.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 4,
+        "y": 13
+      },
+      {
+        "x": 11,
+        "y": 27
+      },
+      {
+        "x": 18,
+        "y": 39
+      },
+      {
+        "x": 27,
+        "y": 53
+      },
+      {
+        "x": 36,
+        "y": 63
+      },
+      {
+        "x": 49,
+        "y": 75
+      },
+      {
+        "x": 66,
+        "y": 90
+      },
+      {
+        "x": 86,
+        "y": 105
+      },
+      {
+        "x": 105,
+        "y": 118
+      },
+      {
+        "x": 131,
+        "y": 135
+      },
+      {
+        "x": 157,
+        "y": 152
+      },
+      {
+        "x": 181,
+        "y": 167
+      },
+      {
+        "x": 201,
+        "y": 179
+      },
+      {
+        "x": 218,
+        "y": 190
+      },
+      {
+        "x": 230,
+        "y": 200
+      },
+      {
+        "x": 239,
+        "y": 213
+      },
+      {
+        "x": 246,
+        "y": 224
+      },
+      {
+        "x": 251,
+        "y": 232
+      },
+      {
+        "x": 255,
+        "y": 243
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": -4,
+    "sharpening": 66,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "VH_PseudoLog_PICCON02.NCP",
+    "name": "VH Rad CineLog D700",
+    "sourcePath": "VH PseudoLog/PICCON02.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 9,
+        "y": 10
+      },
+      {
+        "x": 23,
+        "y": 24
+      },
+      {
+        "x": 37,
+        "y": 38
+      },
+      {
+        "x": 53,
+        "y": 53
+      },
+      {
+        "x": 70,
+        "y": 69
+      },
+      {
+        "x": 89,
+        "y": 87
+      },
+      {
+        "x": 106,
+        "y": 103
+      },
+      {
+        "x": 126,
+        "y": 120
+      },
+      {
+        "x": 150,
+        "y": 140
+      },
+      {
+        "x": 175,
+        "y": 160
+      },
+      {
+        "x": 196,
+        "y": 176
+      },
+      {
+        "x": 212,
+        "y": 188
+      },
+      {
+        "x": 225,
+        "y": 199
+      },
+      {
+        "x": 236,
+        "y": 210
+      },
+      {
+        "x": 245,
+        "y": 223
+      },
+      {
+        "x": 251,
+        "y": 234
+      },
+      {
+        "x": 255,
+        "y": 245
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": -4,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "PICCON08.NCP",
+    "name": "VIVID+1",
+    "sourcePath": "PICCON08.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 6
+      },
+      {
+        "x": 88,
+        "y": 127
+      },
+      {
+        "x": 255,
+        "y": 245
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 77,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "MisNPC_D7000_PICCON20.NCP",
+    "name": "WhiteWedding",
+    "sourcePath": "MisNPC_D7000/PICCON20.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 45,
+        "y": 64
+      },
+      {
+        "x": 90,
+        "y": 128
+      },
+      {
+        "x": 128,
+        "y": 172
+      },
+      {
+        "x": 191,
+        "y": 209
+      },
+      {
+        "x": 225,
+        "y": 225
+      },
+      {
+        "x": 244,
+        "y": 238
+      },
+      {
+        "x": 252,
+        "y": 249
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 22,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON28.NCP",
+    "name": "winda-hr",
+    "sourcePath": "z_cptech/PICCON28.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 127,
+        "y": 110
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -45,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON27.NCP",
+    "name": "winda-lr",
+    "sourcePath": "z_cptech/PICCON27.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 104,
+        "y": 91
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -45,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "z_cptech_PICCON26.NCP",
+    "name": "winda-mr",
+    "sourcePath": "z_cptech/PICCON26.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 125,
+        "y": 110
+      },
+      {
+        "x": 255,
+        "y": 255
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -45,
+    "hue": 0,
+    "sharpening": 55,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Bharath-RL_PICCON01.NCP",
+    "name": "Xpro2",
+    "sourcePath": "Bharath-RL/PICCON01.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 30,
+        "y": 20
+      },
+      {
+        "x": 47,
+        "y": 36
+      },
+      {
+        "x": 63,
+        "y": 59
+      },
+      {
+        "x": 89,
+        "y": 93
+      },
+      {
+        "x": 121,
+        "y": 127
+      },
+      {
+        "x": 157,
+        "y": 163
+      },
+      {
+        "x": 197,
+        "y": 191
+      },
+      {
+        "x": 224,
+        "y": 207
+      },
+      {
+        "x": 252,
+        "y": 229
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 0,
+    "sharpening": 77,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Bharath-RL_PICCON02.NCP",
+    "name": "Xpro2-RED",
+    "sourcePath": "Bharath-RL/PICCON02.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 30,
+        "y": 20
+      },
+      {
+        "x": 47,
+        "y": 36
+      },
+      {
+        "x": 63,
+        "y": 59
+      },
+      {
+        "x": 89,
+        "y": 93
+      },
+      {
+        "x": 121,
+        "y": 127
+      },
+      {
+        "x": 157,
+        "y": 163
+      },
+      {
+        "x": 197,
+        "y": 191
+      },
+      {
+        "x": 224,
+        "y": 207
+      },
+      {
+        "x": 252,
+        "y": 229
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": -8,
+    "sharpening": 77,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Bharath-RL_PICCON03.NCP",
+    "name": "Xpro2-yellow",
+    "sourcePath": "Bharath-RL/PICCON03.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 30,
+        "y": 20
+      },
+      {
+        "x": 47,
+        "y": 36
+      },
+      {
+        "x": 63,
+        "y": 59
+      },
+      {
+        "x": 89,
+        "y": 93
+      },
+      {
+        "x": 121,
+        "y": 127
+      },
+      {
+        "x": 157,
+        "y": 163
+      },
+      {
+        "x": 197,
+        "y": 191
+      },
+      {
+        "x": 224,
+        "y": 207
+      },
+      {
+        "x": 252,
+        "y": 229
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 0,
+    "hue": 8,
+    "sharpening": 77,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Bharath-RL_PICCON04.NCP",
+    "name": "xt1",
+    "sourcePath": "Bharath-RL/PICCON04.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 33,
+        "y": 22
+      },
+      {
+        "x": 70,
+        "y": 72
+      },
+      {
+        "x": 107,
+        "y": 120
+      },
+      {
+        "x": 158,
+        "y": 176
+      },
+      {
+        "x": 201,
+        "y": 215
+      },
+      {
+        "x": 227,
+        "y": 237
+      },
+      {
+        "x": 255,
+        "y": 251
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 8,
+    "sharpening": 77,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Bharath-RL_PICCON05.NCP",
+    "name": "xt1-02",
+    "sourcePath": "Bharath-RL/PICCON05.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 2,
+        "y": 0
+      },
+      {
+        "x": 31,
+        "y": 26
+      },
+      {
+        "x": 70,
+        "y": 72
+      },
+      {
+        "x": 93,
+        "y": 101
+      },
+      {
+        "x": 118,
+        "y": 133
+      },
+      {
+        "x": 155,
+        "y": 176
+      },
+      {
+        "x": 201,
+        "y": 217
+      },
+      {
+        "x": 227,
+        "y": 237
+      },
+      {
+        "x": 255,
+        "y": 251
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": 15,
+    "hue": 0,
+    "sharpening": 77,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  },
+  {
+    "id": "Bharath-RL_PICCON06.NCP",
+    "name": "xt10-01",
+    "sourcePath": "Bharath-RL/PICCON06.NCP",
+    "mode": "color",
+    "curve": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 45,
+        "y": 38
+      },
+      {
+        "x": 91,
+        "y": 78
+      },
+      {
+        "x": 135,
+        "y": 124
+      },
+      {
+        "x": 188,
+        "y": 172
+      },
+      {
+        "x": 223,
+        "y": 195
+      },
+      {
+        "x": 255,
+        "y": 223
+      }
+    ],
+    "brightness": 0,
+    "contrast": 0,
+    "saturation": -15,
+    "hue": 4,
+    "sharpening": 77,
+    "filter": "none",
+    "monoTone": null,
+    "toning": null
+  }
+]
