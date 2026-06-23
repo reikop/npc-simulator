@@ -2,6 +2,8 @@
 // Everything here is original code that approximates the *look* of Nikon Picture
 // Controls; it is not Nikon's proprietary algorithm and produces a preview only.
 
+import { applyAcr } from './acr'
+
 export interface CurvePoint {
   x: number // input 0..255
   y: number // output 0..255
@@ -57,6 +59,13 @@ export interface PictureControl {
   monoTone?: MonoTone | null
   /** Colour-mode tint (our extra). null = off. */
   toning: { color: string; strength: number } | null // strength 0..100
+  /**
+   * Full Adobe Camera Raw parameter set, present only on presets imported from
+   * an .xmp. When set, the render pipeline runs the high-fidelity ACR path
+   * (see acr.ts) so the imported look is reproduced faithfully; the master tone
+   * curve above stays the editable point curve.
+   */
+  acr?: import('./acr').AcrParams
 }
 
 // Per-density [R,G,B] offsets added to the grey value. sepia / cyanotype / red
@@ -195,6 +204,14 @@ function hexToRgb(hex: string): [number, number, number] {
 // ---------------------------------------------------------------------------
 
 export function applyPictureControl(img: ImageData, pc: PictureControl): void {
+  // High-fidelity path for XMP-imported presets: render the full ACR parameter
+  // set (white balance, region tone, HSL, colour grading, grain, …).
+  if (pc.acr) {
+    applyAcr(img, pc.acr, pc.curve)
+    if (pc.sharpening > 0) unsharpMask(img, pc.sharpening / 100)
+    return
+  }
+
   const d = img.data
   const tone = buildToneLut(pc)
 

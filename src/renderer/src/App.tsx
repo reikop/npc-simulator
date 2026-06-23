@@ -12,7 +12,20 @@ import { loadImageBitmap, isRawName } from './lib/nef'
 import { nefToPictureControl } from './lib/nefPictureControl'
 import { ALL_PRESETS, clonePreset, type LibraryPreset } from './lib/presets'
 import { encodeRecipe, fromRecipeJson, readNpcName, type NpcFileInfo } from './lib/npc'
-import { pickImageFile, pickNpcFolder, downloadBlob } from './lib/fileio'
+import { pickImageFile, pickNpcFolder, pickXmpFile, downloadBlob } from './lib/fileio'
+import { xmpToPictureControl } from './lib/xmp'
+
+const IMPORTED_KEY = 'npc-sim-imported-v1'
+
+function loadImported(): PictureControl[] {
+  try {
+    const raw = localStorage.getItem(IMPORTED_KEY)
+    const arr = raw ? (JSON.parse(raw) as PictureControl[]) : []
+    return Array.isArray(arr) ? arr : []
+  } catch {
+    return []
+  }
+}
 
 const MAX_EDGE = 1600 // working-resolution cap for real-time editing
 
@@ -37,6 +50,7 @@ export default function App() {
   const [npcFolder, setNpcFolder] = useState<string | null>(null)
   const [npcFiles, setNpcFiles] = useState<NpcFileInfo[]>([])
   const [embeddedPc, setEmbeddedPc] = useState<PictureControl | null>(null)
+  const [imported, setImported] = useState<PictureControl[]>(loadImported)
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const rafRef = useRef<number>(0)
@@ -124,9 +138,14 @@ export default function App() {
 
   // -- export / save -----------------------------------------------------------
   const exportNpc = useCallback(() => {
+    // We cannot synthesise a camera-valid binary NCP: the curve-bearing on-camera
+    // format (.NP3) is Nikon-proprietary and undocumented, and the only .NCP
+    // samples available (nikonpc.com's builder output) are a fixed 51-byte stub
+    // that encodes neither the name nor the tone curve. So export the portable,
+    // loss-less JSON recipe instead — that actually carries the look.
     const safe = pc.name.replace(/[^A-Za-z0-9_-]/g, '_').slice(0, 20) || 'CUSTOM'
     downloadBlob(`${safe}.json`, encodeRecipe(pc))
-    setStatus(`내보냄: ${safe}.json (레시피)`)
+    setStatus(`내보냄: ${safe}.json (레시피 · 바이너리 NCP는 비공개 포맷이라 불가)`)
   }, [pc])
 
   const saveRecipe = useCallback(() => {
@@ -143,6 +162,44 @@ export default function App() {
     setStatus(`프리셋 적용: ${preset.name}`)
   }, [])
 
+  // -- import an Adobe XMP preset, convert to NPC, and register it -------------
+  const persistImported = useCallback((list: PictureControl[]) => {
+    try {
+      localStorage.setItem(IMPORTED_KEY, JSON.stringify(list))
+    } catch {
+      /* storage full / disabled — keep in-memory only */
+    }
+  }, [])
+
+  const importXmp = useCallback(async () => {
+    try {
+      const opened = await pickXmpFile()
+      if (!opened) return
+      const ctrl = xmpToPictureControl(opened.text, opened.name)
+      setImported((prev) => {
+        const next = [ctrl, ...prev.filter((p) => p.id !== ctrl.id)]
+        persistImported(next)
+        return next
+      })
+      setPc(clonePreset(ctrl))
+      setTab('presets')
+      setStatus(`XMP 변환·등록: ${ctrl.name}`)
+    } catch (err) {
+      setStatus('XMP 변환 실패: ' + (err as Error).message)
+    }
+  }, [persistImported])
+
+  const removeImported = useCallback(
+    (id: string) => {
+      setImported((prev) => {
+        const next = prev.filter((p) => p.id !== id)
+        persistImported(next)
+        return next
+      })
+    },
+    [persistImported]
+  )
+
   return (
     <div className="app">
       <header className="topbar">
@@ -154,6 +211,7 @@ export default function App() {
             이미지 열기 (JPG/NEF)
           </button>
           <button onClick={chooseNpcFolder}>NPC 폴더…</button>
+          <button onClick={importXmp}>XMP 가져오기</button>
           <button onClick={exportNpc} disabled={!image && false}>
             내보내기
           </button>
@@ -224,7 +282,12 @@ export default function App() {
 
           <div className="tab-body">
             {tab === 'presets' && (
-              <PresetGrid current={pc} onPick={applyPreset} />
+              <PresetGrid
+                current={pc}
+                onPick={applyPreset}
+                extra={imported}
+                onRemove={removeImported}
+              />
             )}
 
             {tab === 'adjust' && (
@@ -388,28 +451,34 @@ export default function App() {
 
 function PresetGrid({
   current,
-  onPick
+  onPick,
+  extra = [],
+  onRemove
 }: {
   current: PictureControl
   onPick: (p: PictureControl) => void
+  extra?: PictureControl[]
+  onRemove?: (id: string) => void
 }) {
   const [q, setQ] = useState('')
   const [mono, setMono] = useState<'all' | 'color' | 'monochrome'>('all')
+  const importedIds = useMemo(() => new Set(extra.map((p) => p.id)), [extra])
+  const all = useMemo(() => [...extra, ...ALL_PRESETS], [extra])
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase()
-    return ALL_PRESETS.filter((p) => {
+    return all.filter((p) => {
       if (mono !== 'all' && p.mode !== mono) return false
       if (needle && !p.name.toLowerCase().includes(needle)) return false
       return true
     })
-  }, [q, mono])
+  }, [q, mono, all])
 
   return (
     <div className="preset-wrap">
       <div className="preset-toolbar">
         <input
           className="search"
-          placeholder={`${ALL_PRESETS.length}개 검색…`}
+          placeholder={`${all.length}개 검색…`}
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
@@ -423,17 +492,34 @@ function PresetGrid({
       </div>
       <p className="hint count-line">{filtered.length}개 표시</p>
       <div className="preset-grid">
-        {filtered.map((p) => (
-          <button
-            key={p.id}
-            className={'preset ' + (current.name === p.name ? 'on' : '')}
-            onClick={() => onPick(p)}
-            title={(p as LibraryPreset).sourcePath ?? p.name}
-          >
-            <span className={'swatch ' + p.mode}>{p.mode === 'monochrome' ? '◑' : '●'}</span>
-            <span className="preset-name">{p.name}</span>
-          </button>
-        ))}
+        {filtered.map((p) => {
+          const isImported = importedIds.has(p.id)
+          return (
+            <button
+              key={p.id}
+              className={'preset ' + (current.name === p.name ? 'on' : '')}
+              onClick={() => onPick(p)}
+              title={isImported ? 'XMP 가져옴' : (p as LibraryPreset).sourcePath ?? p.name}
+            >
+              <span className={'swatch ' + p.mode}>{p.mode === 'monochrome' ? '◑' : '●'}</span>
+              <span className="preset-name">{p.name}</span>
+              {isImported && <span className="preset-badge">XMP</span>}
+              {isImported && onRemove && (
+                <span
+                  className="preset-del"
+                  role="button"
+                  title="등록 해제"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    onRemove(p.id)
+                  }}
+                >
+                  ×
+                </span>
+              )}
+            </button>
+          )
+        })}
       </div>
     </div>
   )

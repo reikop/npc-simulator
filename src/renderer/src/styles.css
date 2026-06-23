@@ -382,6 +382,29 @@ select {
 }
 .preset-name {
   font-weight: 500;
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.preset-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 1px 4px;
+}
+.preset-del {
+  font-size: 14px;
+  line-height: 1;
+  color: #888;
+  padding: 0 4px;
+}
+.preset-del:hover {
+  color: #e66;
 }
 
 /* ---- npc ---- */

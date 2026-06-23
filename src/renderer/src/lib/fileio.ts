@@ -39,6 +39,26 @@ export function pickImageFile(): Promise<OpenedImage | null> {
   })
 }
 
+export interface OpenedText {
+  name: string
+  text: string
+}
+
+/** Open a single XMP preset file (text) via a hidden file input. */
+export function pickXmpFile(): Promise<OpenedText | null> {
+  return new Promise((resolve) => {
+    const input = document.createElement('input')
+    input.type = 'file'
+    input.accept = '.xmp,application/rdf+xml,text/xml'
+    input.onchange = async () => {
+      const f = input.files?.[0]
+      if (!f) return resolve(null)
+      resolve({ name: f.name, text: await f.text() })
+    }
+    input.click()
+  })
+}
+
 /**
  * Pick a folder and return every NPC file inside it (bytes loaded eagerly —
  * NPC folders are tiny). Prefers the File System Access API; falls back to a
