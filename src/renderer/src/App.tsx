@@ -11,8 +11,9 @@ import {
 import { loadImageBitmap, isRawName } from './lib/nef'
 import { nefToPictureControl } from './lib/nefPictureControl'
 import { ALL_PRESETS, clonePreset, type LibraryPreset } from './lib/presets'
-import { encodeRecipe, fromRecipeJson, readNpcName, type NpcFileInfo } from './lib/npc'
+import { fromRecipeJson, readNpcName, type NpcFileInfo } from './lib/npc'
 import { pickImageFile, pickNpcFolder, pickXmpFile, downloadBlob } from './lib/fileio'
+import { buildNp3 } from './lib/np3'
 import { xmpToPictureControl } from './lib/xmp'
 
 const IMPORTED_KEY = 'npc-sim-imported-v1'
@@ -138,14 +139,13 @@ export default function App() {
 
   // -- export / save -----------------------------------------------------------
   const exportNpc = useCallback(() => {
-    // We cannot synthesise a camera-valid binary NCP: the curve-bearing on-camera
-    // format (.NP3) is Nikon-proprietary and undocumented, and the only .NCP
-    // samples available (nikonpc.com's builder output) are a fixed 51-byte stub
-    // that encodes neither the name nor the tone curve. So export the portable,
-    // loss-less JSON recipe instead — that actually carries the look.
+    // Real camera-loadable .NP3 (Picture Control v0310), built from a reverse-
+    // engineered NX Studio template. The preset name is written into the file;
+    // the look is inherited from the template (per-slider/curve encoding needs
+    // more samples — see np3.ts). Drop it in NIKON/CUSTOMPC on the SD card.
     const safe = pc.name.replace(/[^A-Za-z0-9_-]/g, '_').slice(0, 20) || 'CUSTOM'
-    downloadBlob(`${safe}.json`, encodeRecipe(pc))
-    setStatus(`내보냄: ${safe}.json (레시피 · 바이너리 NCP는 비공개 포맷이라 불가)`)
+    downloadBlob(`${safe}.NP3`, buildNp3(pc.name))
+    setStatus(`내보냄: ${safe}.NP3 (카메라용 Picture Control)`)
   }, [pc])
 
   const saveRecipe = useCallback(() => {
