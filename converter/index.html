@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XMP → NP3 변환기</title>
+    <meta
+      name="description"
+      content="Adobe Lightroom(XMP) 프리셋을 니콘 카메라용 Flexible Picture Control(.NP3)로 변환합니다. 파일은 브라우저 안에서만 처리됩니다."
+    />
+    <style>
+      :root {
+        --bg: #1b1b1f;
+        --bg2: #232328;
+        --bg3: #2c2c33;
+        --line: #38383f;
+        --fg: #e8e8ec;
+        --muted: #9a9aa6;
+        --accent: #f5a623;
+        --accent2: #4aa3ff;
+        --ok: #57c26b;
+        --warn: #e0b341;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 32px 16px 48px;
+      }
+      main {
+        width: 100%;
+        max-width: 720px;
+      }
+      h1 {
+        font-size: 26px;
+        margin: 0 0 4px;
+      }
+      h1 .arrow {
+        color: var(--accent);
+      }
+      .sub {
+        color: var(--muted);
+        margin: 0 0 24px;
+        line-height: 1.5;
+      }
+      #dropzone {
+        border: 2px dashed var(--line);
+        border-radius: 14px;
+        background: var(--bg2);
+        padding: 44px 24px;
+        text-align: center;
+        cursor: pointer;
+        transition: border-color 0.15s, background 0.15s;
+      }
+      #dropzone.over {
+        border-color: var(--accent);
+        background: #2a2620;
+      }
+      #dropzone .icon {
+        font-size: 34px;
+        color: var(--accent);
+      }
+      #dropzone p {
+        margin: 10px 0 4px;
+        font-size: 17px;
+        font-weight: 600;
+      }
+      #dropzone small {
+        color: var(--muted);
+      }
+      #results {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .row {
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 12px 14px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      .row.error {
+        border-color: #a04545;
+      }
+      .row svg {
+        flex: none;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+      }
+      .row .meta {
+        flex: 1;
+        min-width: 0;
+      }
+      .row .name {
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .row .name small {
+        color: var(--muted);
+        font-weight: 400;
+        margin-left: 6px;
+      }
+      .chips {
+        margin-top: 6px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .chip {
+        font-size: 11px;
+        border: 1px solid var(--line);
+        color: var(--muted);
+        border-radius: 4px;
+        padding: 1px 6px;
+      }
+      .chip.on {
+        color: var(--ok);
+        border-color: var(--ok);
+      }
+      .chip.warn {
+        color: var(--warn);
+        border-color: var(--warn);
+      }
+      .err-msg {
+        color: #e08585;
+        margin-top: 4px;
+        font-size: 12px;
+      }
+      button {
+        font: inherit;
+        color: var(--fg);
+        background: var(--bg3);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 7px 14px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      button:hover {
+        border-color: var(--accent);
+      }
+      button.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #1b1b1f;
+        font-weight: 600;
+      }
+      #downloadAll {
+        margin-top: 14px;
+        width: 100%;
+        display: none;
+      }
+      .notes {
+        margin-top: 28px;
+        border-top: 1px solid var(--line);
+        padding-top: 16px;
+        color: var(--muted);
+        font-size: 12.5px;
+        line-height: 1.7;
+      }
+      .notes b {
+        color: var(--fg);
+      }
+      .notes a {
+        color: var(--accent2);
+      }
+      footer {
+        margin-top: 28px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      footer a {
+        color: var(--accent2);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>XMP <span class="arrow">→</span> NP3 변환기</h1>
+      <p class="sub">
+        Adobe Lightroom / Camera Raw 프리셋(.xmp)을 니콘 카메라용
+        <b>Flexible Picture Control</b>(.NP3)로 변환합니다. 여러 파일을 한 번에 올릴 수
+        있고, 모든 처리는 브라우저 안에서만 이루어집니다 — 파일이 서버로 전송되지 않습니다.
+      </p>
+
+      <div id="dropzone">
+        <div class="icon">⤓</div>
+        <p>XMP 파일을 여기에 드래그하거나 클릭해서 선택</p>
+        <small>여러 개 동시 변환 가능 · .xmp</small>
+        <input id="fileInput" type="file" accept=".xmp" multiple hidden />
+      </div>
+
+      <div id="results"></div>
+      <button id="downloadAll" class="primary">전체 다운로드</button>
+
+      <div class="notes">
+        <b>변환되는 것</b> — 톤(대비·하이라이트·섀도·화이트·블랙), 채도(+바이브런스 절반 반영),
+        HSL 8밴드 → 컬러 블렌더, 스플릿 토닝/컬러 그레이딩, 샤프닝·명료도·텍스처(→미드레인지),
+        노출·파라메트릭·마스터 톤커브(→ 257포인트 휘도 커브로 베이크).<br />
+        <b>변환되지 않는 것</b> — 화이트밸런스, R/G/B 채널별 커브, 디헤이즈, 그레인
+        (NP3 포맷에 해당 슬롯이 없습니다).<br />
+        <b>사용법</b> — 변환된 .NP3를 SD카드의 <code>NIKON/CUSTOMPC</code> 폴더에 넣고,
+        카메라 메뉴 → Picture Control 관리 → 메모리카드에서 복사. Flexible Picture Control을
+        지원하는 기종(Z6III · Z5II · Z50II · Z8 · Z9 · Zf 등)과 NX Studio에서 사용할 수 있습니다.
+      </div>
+
+      <footer>
+        <a href="https://github.com/reikop/npc-simulator" target="_blank" rel="noopener">NPC Simulator</a>
+        프로젝트의 변환 엔진을 그대로 사용합니다.
+      </footer>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
