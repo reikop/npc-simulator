@@ -201,3 +201,116 @@ export function xmpToPictureControl(xmpText: string, fileName = 'preset.xmp'): P
     acr
   }
 }
+
+// ---------------------------------------------------------------------------
+// Writer: PictureControl → Lightroom/Camera Raw preset XMP (inverse direction,
+// used for NP3 → XMP conversion). Mirrors the attribute style Adobe writes
+// ("+36" signed ints), so the output imports cleanly into Lightroom.
+// ---------------------------------------------------------------------------
+
+const sgn = (v: number) => (v > 0 ? `+${Math.round(v)}` : String(Math.round(v)))
+const escXml = (s: string) =>
+  s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!)
+
+function curveSeq(tag: string, pts: CurvePoint[]): string {
+  const lis = pts.map((p) => `     <rdf:li>${p.x}, ${p.y}</rdf:li>`).join('\n')
+  return `   <crs:${tag}>\n    <rdf:Seq>\n${lis}\n    </rdf:Seq>\n   </crs:${tag}>`
+}
+
+/** Serialise a PictureControl (typically parsed from an .NP3) into an Adobe
+ * Camera Raw preset .xmp. Everything an NP3 carries maps 1:1 back to ACR. */
+export function pictureControlToXmp(pc: PictureControl): string {
+  const a = pc.acr
+  const uuid = Array.from(crypto.getRandomValues(new Uint8Array(16)))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('')
+    .toUpperCase()
+
+  // classic (non-acr) recipes fall back to the few shared sliders
+  const tone = {
+    contrast: a?.contrast ?? pc.contrast,
+    highlights: a?.highlights ?? 0,
+    shadows: a?.shadows ?? 0,
+    whites: a?.whites ?? 0,
+    blacks: a?.blacks ?? 0,
+    saturation: a?.saturation ?? pc.saturation
+  }
+  const attrs: string[] = [
+    'crs:PresetType="Normal"',
+    'crs:Cluster=""',
+    `crs:UUID="${uuid}"`,
+    'crs:SupportsAmount="False"',
+    'crs:SupportsColor="True"',
+    'crs:SupportsMonochrome="True"',
+    'crs:Version="16.0"',
+    'crs:ProcessVersion="15.4"',
+    'crs:WhiteBalance="As Shot"',
+    'crs:Exposure2012="0.00"',
+    `crs:Contrast2012="${sgn(tone.contrast)}"`,
+    `crs:Highlights2012="${sgn(tone.highlights)}"`,
+    `crs:Shadows2012="${sgn(tone.shadows)}"`,
+    `crs:Whites2012="${sgn(tone.whites)}"`,
+    `crs:Blacks2012="${sgn(tone.blacks)}"`,
+    `crs:Texture="${sgn(a?.texture ?? 0)}"`,
+    `crs:Clarity2012="${sgn(a?.clarity ?? 0)}"`,
+    'crs:Vibrance="0"',
+    `crs:Saturation="${sgn(tone.saturation)}"`,
+    `crs:Sharpness="${Math.round(a?.sharpenAmount ?? pc.sharpening)}"`
+  ]
+  for (let i = 0; i < HSL_BANDS.length; i++) {
+    attrs.push(`crs:HueAdjustment${HSL_BANDS[i]}="${sgn(a?.hueAdjust?.[i] ?? 0)}"`)
+  }
+  for (let i = 0; i < HSL_BANDS.length; i++) {
+    attrs.push(`crs:SaturationAdjustment${HSL_BANDS[i]}="${sgn(a?.satAdjust?.[i] ?? 0)}"`)
+  }
+  for (let i = 0; i < HSL_BANDS.length; i++) {
+    attrs.push(`crs:LuminanceAdjustment${HSL_BANDS[i]}="${sgn(a?.lumAdjust?.[i] ?? 0)}"`)
+  }
+  const g = a?.grade
+  attrs.push(
+    `crs:SplitToningShadowHue="${Math.round(g?.shadow.h ?? 0)}"`,
+    `crs:SplitToningShadowSaturation="${Math.round(g?.shadow.s ?? 0)}"`,
+    `crs:SplitToningHighlightHue="${Math.round(g?.highlight.h ?? 0)}"`,
+    `crs:SplitToningHighlightSaturation="${Math.round(g?.highlight.s ?? 0)}"`,
+    `crs:SplitToningBalance="${sgn(g?.balance ?? 0)}"`,
+    `crs:ColorGradeMidtoneHue="${Math.round(g?.midtone.h ?? 0)}"`,
+    `crs:ColorGradeMidtoneSat="${Math.round(g?.midtone.s ?? 0)}"`,
+    `crs:ColorGradeShadowLum="${sgn(g?.shadow.l ?? 0)}"`,
+    `crs:ColorGradeMidtoneLum="${sgn(g?.midtone.l ?? 0)}"`,
+    `crs:ColorGradeHighlightLum="${sgn(g?.highlight.l ?? 0)}"`,
+    `crs:ColorGradeBlending="${Math.round(g?.blending ?? 100)}"`
+  )
+  const mono = pc.mode === 'monochrome' || !!a?.monochrome
+  if (mono) attrs.push('crs:ConvertToGrayscale="True"')
+  const curve = [...pc.curve].sort((p, q) => p.x - q.x)
+  const hasCurve = curve.length > 2 || curve.some((p) => Math.abs(p.y - p.x) > 1)
+  attrs.push(`crs:ToneCurveName2012="${hasCurve ? 'Custom' : 'Linear'}"`, 'crs:HasSettings="True"')
+
+  const identity: CurvePoint[] = [
+    { x: 0, y: 0 },
+    { x: 255, y: 255 }
+  ]
+  return `<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="NPC Simulator">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   ${attrs.join('\n   ')}>
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">${escXml(pc.name)}</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">NPC Simulator</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+${curveSeq('ToneCurvePV2012', hasCurve ? curve : identity)}
+${curveSeq('ToneCurvePV2012Red', identity)}
+${curveSeq('ToneCurvePV2012Green', identity)}
+${curveSeq('ToneCurvePV2012Blue', identity)}
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>
+`
+}

@@ -1,15 +1,16 @@
-// Standalone XMP → NP3 converter page (GitHub Pages). Reuses the simulator's
-// conversion engine verbatim: xmp.ts (ACR parse) + np3.ts (NP3 writer).
+// Standalone XMP ↔ NP3 converter page (GitHub Pages). Reuses the simulator's
+// conversion engine verbatim: xmp.ts (ACR parse/write) + np3.ts (NP3
+// write/parse).
 
-import { xmpToPictureControl } from '../src/renderer/src/lib/xmp'
-import { buildNp3 } from '../src/renderer/src/lib/np3'
+import { xmpToPictureControl, pictureControlToXmp } from '../src/renderer/src/lib/xmp'
+import { buildNp3, parseNp3 } from '../src/renderer/src/lib/np3'
 import { buildToneLut } from '../src/renderer/src/lib/acr'
 import type { PictureControl } from '../src/renderer/src/lib/pictureControl'
 
 interface Row {
   fileName: string
   outName: string
-  bytes: ArrayBuffer | null
+  bytes: ArrayBuffer | string | null // NP3 bytes or XMP text
   ctrl: PictureControl | null
   error?: string
 }
@@ -22,26 +23,35 @@ const downloadAllBtn = $('#downloadAll') as unknown as HTMLButtonElement
 
 const rows: Row[] = []
 
-// ---- conversion -------------------------------------------------------------
+// ---- conversion (both directions, routed by extension) -----------------------
 
-function convert(fileName: string, text: string): Row {
+const safeBase = (name: string) =>
+  name.replace(/[^A-Za-z0-9_-]/g, '_').replace(/_+/g, '_').slice(0, 20) || 'CUSTOM'
+
+function convertXmp(fileName: string, text: string): Row {
   try {
     const ctrl = xmpToPictureControl(text, fileName)
-    const bytes = buildNp3(ctrl)
-    const outName =
-      (ctrl.name.replace(/[^A-Za-z0-9_-]/g, '_').replace(/_+/g, '_').slice(0, 20) || 'CUSTOM') +
-      '.NP3'
-    return { fileName, outName, bytes, ctrl }
+    return { fileName, outName: safeBase(ctrl.name) + '.NP3', bytes: buildNp3(ctrl), ctrl }
+  } catch (err) {
+    return { fileName, outName: '', bytes: null, ctrl: null, error: (err as Error).message }
+  }
+}
+
+function convertNp3(fileName: string, buf: ArrayBuffer): Row {
+  try {
+    const ctrl = parseNp3(buf, fileName)
+    return { fileName, outName: safeBase(ctrl.name) + '.xmp', bytes: pictureControlToXmp(ctrl), ctrl }
   } catch (err) {
     return { fileName, outName: '', bytes: null, ctrl: null, error: (err as Error).message }
   }
 }
 
 async function handleFiles(files: File[]): Promise<void> {
-  const xmps = files.filter((f) => /\.xmp$/i.test(f.name))
-  const skipped = files.length - xmps.length
-  for (const f of xmps) {
-    rows.push(convert(f.name, await f.text()))
+  let skipped = 0
+  for (const f of files) {
+    if (/\.xmp$/i.test(f.name)) rows.push(convertXmp(f.name, await f.text()))
+    else if (/\.(np3|ncp|np2)$/i.test(f.name)) rows.push(convertNp3(f.name, await f.arrayBuffer()))
+    else skipped++
   }
   if (skipped > 0) {
     rows.push({
@@ -49,7 +59,7 @@ async function handleFiles(files: File[]): Promise<void> {
       outName: '',
       bytes: null,
       ctrl: null,
-      error: 'XMP가 아니라서 건너뜀'
+      error: 'XMP/NP3가 아니라서 건너뜀'
     })
   }
   render()
@@ -59,7 +69,7 @@ async function handleFiles(files: File[]): Promise<void> {
 
 function chips(ctrl: PictureControl): { label: string; cls: string }[] {
   const a = ctrl.acr
-  if (!a) return []
+  if (!a) return [{ label: '구형 NCP — 기본 슬라이더만', cls: 'warn' }]
   const out: { label: string; cls: string }[] = []
   const tone = [a.contrast, a.highlights, a.shadows, a.whites, a.blacks].filter(Boolean).length
   if (tone > 0) out.push({ label: `톤 슬라이더 ${tone}`, cls: 'on' })
@@ -110,7 +120,8 @@ function curveSvg(ctrl: PictureControl): string {
 
 function download(row: Row): void {
   if (!row.bytes) return
-  const url = URL.createObjectURL(new Blob([row.bytes], { type: 'application/octet-stream' }))
+  const type = typeof row.bytes === 'string' ? 'application/rdf+xml' : 'application/octet-stream'
+  const url = URL.createObjectURL(new Blob([row.bytes], { type }))
   const aEl = document.createElement('a')
   aEl.href = url
   aEl.download = row.outName
@@ -130,10 +141,14 @@ function render(): void {
         `<div class="meta"><div class="name">${esc(row.fileName)}</div>` +
         `<div class="err-msg">변환 실패: ${esc(row.error ?? '알 수 없는 오류')}</div></div>`
     } else {
+      const size =
+        typeof row.bytes === 'string'
+          ? new TextEncoder().encode(row.bytes).length
+          : row.bytes!.byteLength
       div.innerHTML =
         curveSvg(row.ctrl) +
         `<div class="meta">` +
-        `<div class="name">${esc(row.ctrl.name)}<small>${esc(row.fileName)} → ${esc(row.outName)} · ${row.bytes!.byteLength}B</small></div>` +
+        `<div class="name">${esc(row.ctrl.name)}<small>${esc(row.fileName)} → ${esc(row.outName)} · ${size}B</small></div>` +
         `<div class="chips">${chips(row.ctrl)
           .map((c) => `<span class="chip ${c.cls}">${esc(c.label)}</span>`)
           .join('')}</div>` +
@@ -192,8 +207,22 @@ const SAMPLE_XMP = `<x:xmpmeta xmlns:x="adobe:ns:meta/"><rdf:RDF xmlns:rdf="http
  </rdf:Description></rdf:RDF></x:xmpmeta>`
 
 if (new URLSearchParams(location.search).has('selftest')) {
-  const row = convert('selftest.xmp', SAMPLE_XMP)
+  const row = convertXmp('selftest.xmp', SAMPLE_XMP)
   rows.push(row)
+  let ok = !!row.bytes && row.ctrl?.name === 'SELFTEST'
+  // reverse leg: NP3 bytes → XMP text → parse again. The HSL blue hue (-15)
+  // survives both directions untouched; tone sliders are baked into the curve
+  // (sample has one), so assert the curve came back too.
+  if (ok) {
+    const back = convertNp3('selftest.np3', row.bytes as ArrayBuffer)
+    rows.push(back)
+    const reparsed =
+      typeof back.bytes === 'string' ? xmpToPictureControl(back.bytes, 'roundtrip.xmp') : null
+    ok =
+      back.ctrl?.name === 'SELFTEST' &&
+      reparsed?.acr?.hueAdjust?.[5] === -15 &&
+      (reparsed?.curve.length ?? 0) >= 9
+  }
   render()
-  document.title += row.bytes && row.ctrl?.name === 'SELFTEST' ? ' — SELFTEST OK' : ' — SELFTEST FAIL'
+  document.title += ok ? ' — SELFTEST OK' : ' — SELFTEST FAIL'
 }

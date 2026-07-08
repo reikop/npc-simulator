@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XMP → NP3 변환기</title>
+    <title>XMP ↔ NP3 변환기</title>
     <meta
       name="description"
-      content="Adobe Lightroom(XMP) 프리셋을 니콘 카메라용 Flexible Picture Control(.NP3)로 변환합니다. 파일은 브라우저 안에서만 처리됩니다."
+      content="Adobe Lightroom(XMP) 프리셋과 니콘 Flexible Picture Control(.NP3)을 양방향 변환합니다. 파일은 브라우저 안에서만 처리됩니다."
     />
     <style>
       :root {
@@ -192,32 +192,36 @@
   </head>
   <body>
     <main>
-      <h1>XMP <span class="arrow">→</span> NP3 변환기</h1>
+      <h1>XMP <span class="arrow">↔</span> NP3 변환기</h1>
       <p class="sub">
-        Adobe Lightroom / Camera Raw 프리셋(.xmp)을 니콘 카메라용
-        <b>Flexible Picture Control</b>(.NP3)로 변환합니다. 여러 파일을 한 번에 올릴 수
-        있고, 모든 처리는 브라우저 안에서만 이루어집니다 — 파일이 서버로 전송되지 않습니다.
+        Adobe Lightroom / Camera Raw 프리셋(.xmp)과 니콘 카메라용
+        <b>Flexible Picture Control</b>(.NP3)을 양방향 변환합니다. 확장자를 보고 방향을
+        자동으로 정하며(.xmp → .NP3, .NP3 → .xmp), 여러 파일을 한 번에 올릴 수 있고,
+        모든 처리는 브라우저 안에서만 이루어집니다 — 파일이 서버로 전송되지 않습니다.
       </p>
 
       <div id="dropzone">
         <div class="icon">⤓</div>
-        <p>XMP 파일을 여기에 드래그하거나 클릭해서 선택</p>
-        <small>여러 개 동시 변환 가능 · .xmp</small>
-        <input id="fileInput" type="file" accept=".xmp" multiple hidden />
+        <p>XMP 또는 NP3 파일을 여기에 드래그하거나 클릭해서 선택</p>
+        <small>여러 개 동시 변환 가능 · .xmp → .NP3 · .np3/.ncp → .xmp</small>
+        <input id="fileInput" type="file" accept=".xmp,.np3,.ncp,.np2" multiple hidden />
       </div>
 
       <div id="results"></div>
       <button id="downloadAll" class="primary">전체 다운로드</button>
 
       <div class="notes">
-        <b>변환되는 것</b> — 톤(대비·하이라이트·섀도·화이트·블랙), 채도(+바이브런스 절반 반영),
+        <b>XMP → NP3</b> — 톤(대비·하이라이트·섀도·화이트·블랙), 채도(+바이브런스 절반 반영),
         HSL 8밴드 → 컬러 블렌더, 스플릿 토닝/컬러 그레이딩, 샤프닝·명료도·텍스처(→미드레인지),
-        노출·파라메트릭·마스터 톤커브(→ 257포인트 휘도 커브로 베이크).<br />
-        <b>변환되지 않는 것</b> — 화이트밸런스, R/G/B 채널별 커브, 디헤이즈, 그레인
-        (NP3 포맷에 해당 슬롯이 없습니다).<br />
-        <b>사용법</b> — 변환된 .NP3를 SD카드의 <code>NIKON/CUSTOMPC</code> 폴더에 넣고,
-        카메라 메뉴 → Picture Control 관리 → 메모리카드에서 복사. Flexible Picture Control을
-        지원하는 기종(Z6III · Z5II · Z50II · Z8 · Z9 · Zf 등)과 NX Studio에서 사용할 수 있습니다.
+        노출·파라메트릭·마스터 톤커브(→ 257포인트 휘도 커브로 베이크)가 변환됩니다.
+        화이트밸런스·R/G/B 채널별 커브·디헤이즈·그레인은 NP3 포맷에 슬롯이 없어 제외됩니다.<br />
+        <b>NP3 → XMP</b> — NP3가 담고 있는 모든 항목(톤 슬라이더, 컬러 블렌더 → HSL,
+        컬러 그레이딩 → 스플릿 토닝, 톤커브 앵커, 샤프닝·명료도·미드레인지)이 Lightroom
+        프리셋으로 1:1 복원됩니다. 구형 51바이트 NCP는 기본 슬라이더만 옮겨집니다.<br />
+        <b>사용법</b> — 변환된 .NP3는 SD카드의 <code>NIKON/CUSTOMPC</code> 폴더에 넣고
+        카메라 메뉴 → Picture Control 관리 → 메모리카드에서 복사 (Z6III · Z5II · Z50II ·
+        Z8 · Z9 · Zf 등 Flexible Picture Control 지원 기종과 NX Studio). 변환된 .xmp는
+        Lightroom의 프리셋 가져오기로 불러옵니다.
       </div>
 
       <footer>
