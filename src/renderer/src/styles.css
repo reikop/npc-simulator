@@ -488,3 +488,38 @@ code {
   color: var(--muted);
   font-size: 11px;
 }
+
+/* ---- drag & drop ---- */
+.drop-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(27, 27, 31, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* let the drop event reach the app root */
+}
+.drop-inner {
+  border: 2px dashed var(--accent);
+  border-radius: 14px;
+  padding: 40px 64px;
+  text-align: center;
+  background: var(--bg2);
+}
+.drop-inner p {
+  margin: 10px 0 4px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.drop-inner small {
+  color: var(--muted);
+}
+.drop-icon {
+  font-size: 34px;
+  color: var(--accent);
+}
+.preset-badge.np3 {
+  color: var(--accent2);
+  border-color: var(--accent2);
+}

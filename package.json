@@ -9,6 +9,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "build:converter": "vite build --config vite.converter.config.ts",
+    "preview:converter": "vite preview --config vite.converter.config.ts",
     "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
     "fetch-npc": "node scripts/fetch-npc.mjs"
   },

@@ -169,8 +169,9 @@ export function buildCurveLut(points: CurvePoint[]): Uint8ClampedArray {
   return lut
 }
 
-/** Fold brightness + contrast + curve into a single 256 LUT for speed. */
-function buildToneLut(pc: PictureControl): Uint8ClampedArray {
+/** Fold brightness + contrast + curve into a single 256 LUT for speed.
+ * Exported: np3.ts bakes this LUT into the NP3 tone-curve chunk on export. */
+export function buildToneLut(pc: PictureControl): Uint8ClampedArray {
   const curveLut = buildCurveLut(pc.curve)
   const b = pc.brightness * 1.28 // -128..128
   const c = pc.contrast / 100 // -1..1

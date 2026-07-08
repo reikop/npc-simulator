@@ -39,21 +39,24 @@ export function pickImageFile(): Promise<OpenedImage | null> {
   })
 }
 
-export interface OpenedText {
+export interface OpenedFile {
   name: string
-  text: string
+  bytes: ArrayBuffer
 }
 
-/** Open a single XMP preset file (text) via a hidden file input. */
-export function pickXmpFile(): Promise<OpenedText | null> {
+/** Open one or more preset files (XMP / NP3 / NCP / NP2 / recipe JSON). */
+export function pickPresetFiles(): Promise<OpenedFile[] | null> {
   return new Promise((resolve) => {
     const input = document.createElement('input')
     input.type = 'file'
-    input.accept = '.xmp,application/rdf+xml,text/xml'
+    input.accept = '.xmp,.np3,.ncp,.np2,.json'
+    input.multiple = true
     input.onchange = async () => {
-      const f = input.files?.[0]
-      if (!f) return resolve(null)
-      resolve({ name: f.name, text: await f.text() })
+      const files = Array.from(input.files ?? [])
+      if (files.length === 0) return resolve(null)
+      resolve(
+        await Promise.all(files.map(async (f) => ({ name: f.name, bytes: await f.arrayBuffer() })))
+      )
     }
     input.click()
   })

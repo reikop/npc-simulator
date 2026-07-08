@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from 'react'
 import Slider from './components/Slider'
 import CurveEditor from './components/CurveEditor'
 import {
@@ -12,8 +12,14 @@ import { loadImageBitmap, isRawName } from './lib/nef'
 import { nefToPictureControl } from './lib/nefPictureControl'
 import { ALL_PRESETS, clonePreset, type LibraryPreset } from './lib/presets'
 import { fromRecipeJson, readNpcName, type NpcFileInfo } from './lib/npc'
-import { pickImageFile, pickNpcFolder, pickXmpFile, downloadBlob } from './lib/fileio'
-import { buildNp3 } from './lib/np3'
+import {
+  pickImageFile,
+  pickNpcFolder,
+  pickPresetFiles,
+  downloadBlob,
+  type OpenedFile
+} from './lib/fileio'
+import { buildNp3, parseNp3 } from './lib/np3'
 import { xmpToPictureControl } from './lib/xmp'
 
 const IMPORTED_KEY = 'npc-sim-imported-v1'
@@ -29,6 +35,11 @@ function loadImported(): PictureControl[] {
 }
 
 const MAX_EDGE = 1600 // working-resolution cap for real-time editing
+
+// drag & drop classification
+const IMAGE_EXTS = ['jpg', 'jpeg', 'png', 'webp', 'nef', 'nrw']
+const PRESET_EXTS = ['xmp', 'np3', 'ncp', 'np2', 'json']
+const extOf = (n: string) => n.split('.').pop()?.toLowerCase() ?? ''
 
 type Tab = 'adjust' | 'curve' | 'presets' | 'npc' | 'help'
 
@@ -59,45 +70,52 @@ export default function App() {
   const patch = useCallback((p: Partial<PictureControl>) => setPc((c) => ({ ...c, ...p })), [])
 
   // -- open an image (JPG/NEF) -------------------------------------------------
+  /** Decode + register image bytes; returns the status line to show. */
+  const loadImageBytes = useCallback(async (name: string, bytes: ArrayBuffer): Promise<string> => {
+    const { bitmap, source } = await loadImageBitmap(name, bytes)
+    const fullW = bitmap.width
+    const fullH = bitmap.height
+    const scale = Math.min(1, MAX_EDGE / Math.max(fullW, fullH))
+    const w = Math.max(1, Math.round(fullW * scale))
+    const h = Math.max(1, Math.round(fullH * scale))
+    const off = document.createElement('canvas')
+    off.width = w
+    off.height = h
+    const octx = off.getContext('2d', { willReadFrequently: true })!
+    octx.drawImage(bitmap, 0, 0, w, h)
+    const base = octx.getImageData(0, 0, w, h)
+    bitmap.close?.()
+    setImage({ name, source, base, width: w, height: h })
+
+    // NEF: try to pull the in-camera Picture Control out of the MakerNote
+    let embedded: PictureControl | null = null
+    if (isRawName(name)) {
+      try {
+        embedded = nefToPictureControl(bytes)
+      } catch {
+        embedded = null
+      }
+    }
+    setEmbeddedPc(embedded)
+    return (
+      `${name} · ${fullW}×${fullH}` +
+      (source === 'nef-embedded' ? ' · NEF 임베디드 JPEG' : '') +
+      (embedded ? ` · 내장 Picture Control: ${embedded.name}` : '')
+    )
+  }, [])
+
   const openImage = useCallback(async () => {
     setBusy(true)
     try {
       const opened = await pickImageFile()
       if (!opened) return
-      const { bitmap, source } = await loadImageBitmap(opened.name, opened.bytes)
-      const scale = Math.min(1, MAX_EDGE / Math.max(bitmap.width, bitmap.height))
-      const w = Math.max(1, Math.round(bitmap.width * scale))
-      const h = Math.max(1, Math.round(bitmap.height * scale))
-      const off = document.createElement('canvas')
-      off.width = w
-      off.height = h
-      const octx = off.getContext('2d', { willReadFrequently: true })!
-      octx.drawImage(bitmap, 0, 0, w, h)
-      const base = octx.getImageData(0, 0, w, h)
-      bitmap.close?.()
-      setImage({ name: opened.name, source, base, width: w, height: h })
-
-      // NEF: try to pull the in-camera Picture Control out of the MakerNote
-      let embedded: PictureControl | null = null
-      if (isRawName(opened.name)) {
-        try {
-          embedded = nefToPictureControl(opened.bytes)
-        } catch {
-          embedded = null
-        }
-      }
-      setEmbeddedPc(embedded)
-      setStatus(
-        `${opened.name} · ${bitmap.width}×${bitmap.height}` +
-          (source === 'nef-embedded' ? ' · NEF 임베디드 JPEG' : '') +
-          (embedded ? ` · 내장 Picture Control: ${embedded.name}` : '')
-      )
+      setStatus(await loadImageBytes(opened.name, opened.bytes))
     } catch (err) {
       setStatus('이미지 로드 실패: ' + (err as Error).message)
     } finally {
       setBusy(false)
     }
-  }, [])
+  }, [loadImageBytes])
 
   // -- render pipeline (debounced to animation frame) -------------------------
   const render = useCallback(() => {
@@ -139,13 +157,13 @@ export default function App() {
 
   // -- export / save -----------------------------------------------------------
   const exportNpc = useCallback(() => {
-    // Real camera-loadable .NP3 (Picture Control v0310), built from a reverse-
-    // engineered NX Studio template. The preset name is written into the file;
-    // the look is inherited from the template (per-slider/curve encoding needs
-    // more samples — see np3.ts). Drop it in NIKON/CUSTOMPC on the SD card.
+    // Real camera-loadable .NP3 (flexible Picture Control v0310) carrying the
+    // actual recipe: tone sliders, 8-band colour blender, colour grading (see
+    // np3.ts for the reverse-engineered record map). Drop it in NIKON/CUSTOMPC
+    // on the SD card. WB/exposure/grain/point-curve have no NP3 slot.
     const safe = pc.name.replace(/[^A-Za-z0-9_-]/g, '_').slice(0, 20) || 'CUSTOM'
-    downloadBlob(`${safe}.NP3`, buildNp3(pc.name))
-    setStatus(`내보냄: ${safe}.NP3 (카메라용 Picture Control)`)
+    downloadBlob(`${safe}.NP3`, buildNp3(pc))
+    setStatus(`내보냄: ${safe}.NP3 (카메라용 Picture Control · 레시피 인코딩)`)
   }, [pc])
 
   const saveRecipe = useCallback(() => {
@@ -171,23 +189,113 @@ export default function App() {
     }
   }, [])
 
-  const importXmp = useCallback(async () => {
-    try {
-      const opened = await pickXmpFile()
-      if (!opened) return
-      const ctrl = xmpToPictureControl(opened.text, opened.name)
-      setImported((prev) => {
-        const next = [ctrl, ...prev.filter((p) => p.id !== ctrl.id)]
-        persistImported(next)
-        return next
-      })
-      setPc(clonePreset(ctrl))
-      setTab('presets')
-      setStatus(`XMP 변환·등록: ${ctrl.name}`)
-    } catch (err) {
-      setStatus('XMP 변환 실패: ' + (err as Error).message)
-    }
-  }, [persistImported])
+  /** Convert preset files (XMP/NP3/NCP/recipe JSON) → register + apply the
+   *  last one. Returns a summary for the status bar. */
+  const applyPresetFiles = useCallback(
+    (files: OpenedFile[]): string => {
+      const added: PictureControl[] = []
+      const errors: string[] = []
+      let appliedRecipe: PictureControl | null = null
+      for (const f of files) {
+        const ext = f.name.split('.').pop()?.toLowerCase() ?? ''
+        try {
+          if (ext === 'xmp') {
+            added.push(xmpToPictureControl(new TextDecoder().decode(f.bytes), f.name))
+          } else if (ext === 'np3' || ext === 'ncp' || ext === 'np2') {
+            added.push(parseNp3(f.bytes, f.name))
+          } else if (ext === 'json') {
+            const loaded = fromRecipeJson(new TextDecoder().decode(f.bytes))
+            if (!loaded) throw new Error('NPC Simulator 레시피 JSON이 아닙니다')
+            appliedRecipe = loaded // working-state restore: apply, don't register
+          } else {
+            errors.push(`${f.name}: 지원하지 않는 형식`)
+          }
+        } catch (err) {
+          errors.push(`${f.name}: ${(err as Error).message}`)
+        }
+      }
+      if (added.length > 0) {
+        const dedup = new Map(added.map((p) => [p.id, p]))
+        setImported((prev) => {
+          const next = [...dedup.values(), ...prev.filter((p) => !dedup.has(p.id))]
+          persistImported(next)
+          return next
+        })
+        setTab('presets')
+      }
+      const applied = appliedRecipe ?? added[added.length - 1] ?? null
+      if (applied) setPc(clonePreset(applied))
+
+      const parts: string[] = []
+      if (added.length > 0)
+        parts.push(added.length === 1 ? `프리셋 등록: ${added[0].name}` : `프리셋 ${added.length}개 등록`)
+      if (appliedRecipe) parts.push(`레시피 적용: ${appliedRecipe.name}`)
+      if (errors.length > 0)
+        parts.push(errors.length === 1 ? `실패 — ${errors[0]}` : `실패 ${errors.length}개 (${errors[0]} 외)`)
+      return parts.join(' · ') || '가져올 프리셋이 없습니다'
+    },
+    [persistImported]
+  )
+
+  const importPresets = useCallback(async () => {
+    const files = await pickPresetFiles()
+    if (!files) return
+    setStatus(applyPresetFiles(files))
+  }, [applyPresetFiles])
+
+  // -- drag & drop: images / XMP / NP3·NCP / recipe JSON, in any mix -----------
+  const [dragOver, setDragOver] = useState(false)
+  const dragDepth = useRef(0)
+
+  const onDragEnter = useCallback((e: DragEvent<HTMLDivElement>) => {
+    if (!e.dataTransfer.types.includes('Files')) return
+    e.preventDefault()
+    dragDepth.current++
+    setDragOver(true)
+  }, [])
+  const onDragOver = useCallback((e: DragEvent<HTMLDivElement>) => {
+    if (e.dataTransfer.types.includes('Files')) e.preventDefault()
+  }, [])
+  const onDragLeave = useCallback(() => {
+    dragDepth.current = Math.max(0, dragDepth.current - 1)
+    if (dragDepth.current === 0) setDragOver(false)
+  }, [])
+  const onDrop = useCallback(
+    async (e: DragEvent<HTMLDivElement>) => {
+      e.preventDefault()
+      dragDepth.current = 0
+      setDragOver(false)
+      const files = Array.from(e.dataTransfer.files)
+      if (files.length === 0) return
+      const images = files.filter((f) => IMAGE_EXTS.includes(extOf(f.name)))
+      const presets = files.filter((f) => PRESET_EXTS.includes(extOf(f.name)))
+      const unknown = files.length - images.length - presets.length
+      const parts: string[] = []
+      setBusy(true)
+      try {
+        if (images.length > 0) {
+          const first = images[0]
+          try {
+            parts.push(await loadImageBytes(first.name, await first.arrayBuffer()))
+            if (images.length > 1) parts.push(`(이미지 ${images.length - 1}개는 무시 — 한 번에 1장)`)
+          } catch (err) {
+            parts.push(`이미지 로드 실패: ${(err as Error).message}`)
+          }
+        }
+        if (presets.length > 0) {
+          const opened = await Promise.all(
+            presets.map(async (f) => ({ name: f.name, bytes: await f.arrayBuffer() }))
+          )
+          parts.push(applyPresetFiles(opened))
+        }
+        if (unknown > 0) parts.push(`미지원 파일 ${unknown}개 무시`)
+        setStatus(parts.join(' · '))
+      } finally {
+        setBusy(false)
+      }
+    },
+    [applyPresetFiles, loadImageBytes]
+  )
 
   const removeImported = useCallback(
     (id: string) => {
@@ -201,7 +309,22 @@ export default function App() {
   )
 
   return (
-    <div className="app">
+    <div
+      className="app"
+      onDragEnter={onDragEnter}
+      onDragOver={onDragOver}
+      onDragLeave={onDragLeave}
+      onDrop={onDrop}
+    >
+      {dragOver && (
+        <div className="drop-overlay">
+          <div className="drop-inner">
+            <div className="drop-icon">⤓</div>
+            <p>놓아서 열기</p>
+            <small>이미지 (JPG·NEF) · 프리셋 (XMP·NP3·NCP) · 레시피 (JSON) — 여러 개 동시 가능</small>
+          </div>
+        </div>
+      )}
       <header className="topbar">
         <div className="brand">
           <span className="logo">◐</span> NPC Simulator
@@ -211,7 +334,7 @@ export default function App() {
             이미지 열기 (JPG/NEF)
           </button>
           <button onClick={chooseNpcFolder}>NPC 폴더…</button>
-          <button onClick={importXmp}>XMP 가져오기</button>
+          <button onClick={importPresets}>프리셋 가져오기 (XMP/NP3)</button>
           <button onClick={exportNpc} disabled={!image && false}>
             내보내기
           </button>
@@ -258,6 +381,7 @@ export default function App() {
                 <div className="empty-icon">⬚</div>
                 <p>JPG 또는 NEF 이미지를 열어 Picture Control을 미리보세요</p>
                 <button onClick={openImage}>이미지 열기</button>
+                <p className="hint">이미지·XMP·NP3 파일을 창에 드래그해서 놓아도 됩니다</p>
               </div>
             </div>
           )}
@@ -494,16 +618,21 @@ function PresetGrid({
       <div className="preset-grid">
         {filtered.map((p) => {
           const isImported = importedIds.has(p.id)
+          const importKind = p.id.startsWith('np3-') || p.id.startsWith('ncp-') ? 'NP3' : 'XMP'
           return (
             <button
               key={p.id}
               className={'preset ' + (current.name === p.name ? 'on' : '')}
               onClick={() => onPick(p)}
-              title={isImported ? 'XMP 가져옴' : (p as LibraryPreset).sourcePath ?? p.name}
+              title={isImported ? `${importKind} 가져옴` : (p as LibraryPreset).sourcePath ?? p.name}
             >
               <span className={'swatch ' + p.mode}>{p.mode === 'monochrome' ? '◑' : '●'}</span>
               <span className="preset-name">{p.name}</span>
-              {isImported && <span className="preset-badge">XMP</span>}
+              {isImported && (
+                <span className={'preset-badge' + (importKind === 'NP3' ? ' np3' : '')}>
+                  {importKind}
+                </span>
+              )}
               {isImported && onRemove && (
                 <span
                   className="preset-del"

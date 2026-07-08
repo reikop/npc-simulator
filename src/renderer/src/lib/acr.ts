@@ -130,7 +130,8 @@ const LUMA_G = 0.7152
 const LUMA_B = 0.0722
 
 // ---- tone: build a per-channel 256 LUT folding exposure/contrast/region ----
-function buildToneLut(a: AcrParams, master: CurvePoint[]): Uint8ClampedArray {
+// Exported: np3.ts bakes this LUT into the NP3 tone-curve chunk on export.
+export function buildToneLut(a: AcrParams, master: CurvePoint[]): Uint8ClampedArray {
   // Exposure on a display-referred 8-bit preview must PRESERVE the endpoints,
   // otherwise a negative EV drags an already-blown sky down to grey (Adobe runs
   // exposure in scene-linear RAW where blown highlights have headroom). An
