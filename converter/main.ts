@@ -94,18 +94,29 @@ const cloneSample = () =>
   new ImageData(new Uint8ClampedArray(sample.data), sample.width, sample.height)
 
 async function loadSampleFile(f: File): Promise<void> {
-  const bmp = await createImageBitmap(f, { imageOrientation: 'from-image' })
-  const scale = Math.min(1, PV_W / bmp.width)
-  const w = Math.max(1, Math.round(bmp.width * scale))
-  const h = Math.max(1, Math.round(bmp.height * scale))
-  const c = document.createElement('canvas')
-  c.width = w
-  c.height = h
-  const ctx = c.getContext('2d')!
-  ctx.drawImage(bmp, 0, 0, w, h)
-  sample = ctx.getImageData(0, 0, w, h)
-  renderCache.clear()
-  drawIdle()
+  try {
+    const bmp = await createImageBitmap(f, { imageOrientation: 'from-image' })
+    const scale = Math.min(1, PV_W / bmp.width)
+    const w = Math.max(1, Math.round(bmp.width * scale))
+    const h = Math.max(1, Math.round(bmp.height * scale))
+    const c = document.createElement('canvas')
+    c.width = w
+    c.height = h
+    const ctx = c.getContext('2d')!
+    ctx.drawImage(bmp, 0, 0, w, h)
+    sample = ctx.getImageData(0, 0, w, h)
+    renderCache.clear()
+    previewEl.style.display = 'block' // a photo alone must show the panel too
+    drawIdle()
+  } catch {
+    rows.push({
+      fileName: f.name,
+      outName: '',
+      bytes: null,
+      ctrl: null,
+      error: '이미지를 읽지 못했습니다 — JPG/PNG/WebP만 샘플로 쓸 수 있습니다'
+    })
+  }
 }
 
 /** Left half = reference (XMP rows: full ACR render; NP3 rows: the untouched
