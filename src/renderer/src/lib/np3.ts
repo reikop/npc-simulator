@@ -265,6 +265,57 @@ export function buildNp3(pc: PictureControl): ArrayBuffer {
 // Reader: .NP3 / .NCP → PictureControl (inverse of the writer above)
 // ---------------------------------------------------------------------------
 
+/** Curve points from a tone-curve chunk. The 257-entry LUT is the full
+ * composite curve — real Nikon recipes set non-default levels/gamma in the
+ * chunk header (matte out-min, gamma 0.6…), which the editor anchors alone
+ * miss — so fit points to the LUT when present; raw anchors are the fallback
+ * for short/legacy chunks. */
+function curveFromChunk(val: Uint8Array): CurvePoint[] | null {
+  if (val.length >= 64 + 257 * 2) {
+    // u16 BE entries over input 0..256 → composite curve sampled at x 0..255
+    const lut = new Float64Array(256)
+    for (let x = 0; x < 256; x++) {
+      const t = (x * 256) / 255
+      const i = Math.min(255, Math.floor(t))
+      const a = ((val[64 + i * 2] << 8) | val[64 + i * 2 + 1]) / 32767
+      const b = ((val[66 + i * 2] << 8) | val[66 + i * 2 + 1]) / 32767
+      lut[x] = (a + (b - a) * (t - i)) * 255
+    }
+    return fitCurveToLut(lut)
+  }
+  const n = Math.min(val[8] ?? 0, 20)
+  const pts: CurvePoint[] = []
+  for (let i = 0; i < n; i++) pts.push({ x: val[9 + i * 2], y: val[10 + i * 2] })
+  pts.sort((p, q) => p.x - q.x)
+  return pts.length >= 2 ? pts : null
+}
+
+/** Greedy spline fit: start from the endpoints and keep adding the sample the
+ * Catmull-Rom through the current points misses most, until the curve fits
+ * within ±1/255 or reaches Adobe's 16-anchor budget. */
+function fitCurveToLut(lut: Float64Array): CurvePoint[] {
+  const pts: CurvePoint[] = [
+    { x: 0, y: Math.round(lut[0]) },
+    { x: 255, y: Math.round(lut[255]) }
+  ]
+  while (pts.length < 16) {
+    const spline = buildCurveLut(pts)
+    let worstX = -1
+    let worstErr = 1
+    for (let x = 1; x < 255; x++) {
+      const err = Math.abs(lut[x] - spline[x])
+      if (err > worstErr) {
+        worstErr = err
+        worstX = x
+      }
+    }
+    if (worstX < 0) break
+    pts.push({ x: worstX, y: Math.round(lut[worstX]) })
+    pts.sort((p, q) => p.x - q.x)
+  }
+  return pts
+}
+
 const ascii = (u8: Uint8Array, off: number, len: number): string => {
   let s = ''
   for (let i = off; i < off + len && i < u8.length; i++) {
@@ -306,12 +357,7 @@ export function parseNp3(buf: ArrayBuffer, fileName = 'preset.np3'): PictureCont
     if (id === 0x00010100) {
       // comment chunk — provenance only, not part of the look
     } else if (id === 0x00000002 && len >= 64) {
-      // tone-curve chunk: anchor count at [8], (x,y) byte pairs from [9]
-      const n = Math.min(val[8] ?? 0, 20)
-      const pts: CurvePoint[] = []
-      for (let i = 0; i < n; i++) pts.push({ x: val[9 + i * 2], y: val[10 + i * 2] })
-      pts.sort((p, q) => p.x - q.x)
-      if (pts.length >= 2) curve = pts
+      curve = curveFromChunk(val)
     } else {
       records.set(id, val)
     }

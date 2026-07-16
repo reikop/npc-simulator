@@ -212,7 +212,7 @@ if (new URLSearchParams(location.search).has('selftest')) {
   let ok = !!row.bytes && row.ctrl?.name === 'SELFTEST'
   // reverse leg: NP3 bytes → XMP text → parse again. The HSL blue hue (-15)
   // survives both directions untouched; tone sliders are baked into the curve
-  // (sample has one), so assert the curve came back too.
+  // (sample has one), so assert a non-linear curve came back too.
   if (ok) {
     const back = convertNp3('selftest.np3', row.bytes as ArrayBuffer)
     rows.push(back)
@@ -221,7 +221,8 @@ if (new URLSearchParams(location.search).has('selftest')) {
     ok =
       back.ctrl?.name === 'SELFTEST' &&
       reparsed?.acr?.hueAdjust?.[5] === -15 &&
-      (reparsed?.curve.length ?? 0) >= 9
+      (reparsed?.curve.length ?? 0) >= 3 &&
+      (reparsed?.curve.length ?? 99) <= 16 // Adobe's point-curve anchor limit
   }
   render()
   document.title += ok ? ' — SELFTEST OK' : ' — SELFTEST FAIL'

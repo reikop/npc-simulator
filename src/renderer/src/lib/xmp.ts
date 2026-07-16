@@ -217,6 +217,30 @@ function curveSeq(tag: string, pts: CurvePoint[]): string {
   return `   <crs:${tag}>\n    <rdf:Seq>\n${lis}\n    </rdf:Seq>\n   </crs:${tag}>`
 }
 
+/** Adobe's point curve holds at most 16 anchors — Lightroom drops the whole
+ * curve on import when a preset exceeds that (NP3 curve chunks carry 17+).
+ * Thin interior points, least shape-changing first, until it fits. */
+function capCurvePoints(pts: CurvePoint[], max = 16): CurvePoint[] {
+  const out = [...pts]
+  while (out.length > max) {
+    let bestI = 1
+    let bestErr = Infinity
+    for (let i = 1; i < out.length - 1; i++) {
+      const a = out[i - 1]
+      const b = out[i]
+      const c = out[i + 1]
+      const t = c.x === a.x ? 0.5 : (b.x - a.x) / (c.x - a.x)
+      const err = Math.abs(b.y - (a.y + (c.y - a.y) * t))
+      if (err < bestErr) {
+        bestErr = err
+        bestI = i
+      }
+    }
+    out.splice(bestI, 1)
+  }
+  return out
+}
+
 /** Serialise a PictureControl (typically parsed from an .NP3) into an Adobe
  * Camera Raw preset .xmp. Everything an NP3 carries maps 1:1 back to ACR. */
 export function pictureControlToXmp(pc: PictureControl): string {
@@ -282,7 +306,7 @@ export function pictureControlToXmp(pc: PictureControl): string {
   )
   const mono = pc.mode === 'monochrome' || !!a?.monochrome
   if (mono) attrs.push('crs:ConvertToGrayscale="True"')
-  const curve = [...pc.curve].sort((p, q) => p.x - q.x)
+  const curve = capCurvePoints([...pc.curve].sort((p, q) => p.x - q.x))
   const hasCurve = curve.length > 2 || curve.some((p) => Math.abs(p.y - p.x) > 1)
   attrs.push(`crs:ToneCurveName2012="${hasCurve ? 'Custom' : 'Linear'}"`, 'crs:HasSettings="True"')
 
