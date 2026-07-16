@@ -77,11 +77,57 @@
       #dropzone small {
         color: var(--muted);
       }
+      #preview {
+        display: none;
+        margin-top: 20px;
+        position: sticky;
+        top: 10px;
+        z-index: 5;
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+      }
+      #preview canvas {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        background: var(--bg);
+      }
+      .preview-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px;
+        margin-top: 7px;
+        font-size: 11.5px;
+        color: var(--muted);
+      }
+      .pv-label {
+        font-weight: 600;
+        color: var(--accent);
+        min-width: 96px;
+      }
+      #previewLabelR {
+        text-align: right;
+      }
+      #previewHint {
+        flex: 1;
+        text-align: center;
+      }
       #results {
         margin-top: 20px;
         display: flex;
         flex-direction: column;
         gap: 10px;
+      }
+      .row.previewable {
+        cursor: crosshair;
+      }
+      .row.previewable:hover {
+        border-color: var(--accent2);
       }
       .row {
         background: var(--bg2);
@@ -189,7 +235,7 @@
         color: var(--accent2);
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-vt1ZINVI.js"></script>
+    <script type="module" crossorigin src="./assets/index-D0G_q4ow.js"></script>
   </head>
   <body>
     <main>
@@ -204,8 +250,28 @@
       <div id="dropzone">
         <div class="icon">⤓</div>
         <p>XMP 또는 NP3 파일을 여기에 드래그하거나 클릭해서 선택</p>
-        <small>여러 개 동시 변환 가능 · .xmp → .NP3 · .np3/.ncp → .xmp</small>
-        <input id="fileInput" type="file" accept=".xmp,.np3,.ncp,.np2" multiple hidden />
+        <small
+          >여러 개 동시 변환 가능 · .xmp → .NP3 · .np3/.ncp → .xmp · JPG/PNG를 올리면
+          미리보기 샘플 사진으로 사용</small
+        >
+        <input
+          id="fileInput"
+          type="file"
+          accept=".xmp,.np3,.ncp,.np2,.jpg,.jpeg,.png,.webp"
+          multiple
+          hidden
+        />
+      </div>
+
+      <div id="preview">
+        <canvas id="previewCanvas" width="720" height="480"></canvas>
+        <div class="preview-bar">
+          <span id="previewLabelL" class="pv-label"></span>
+          <span id="previewHint"
+            >행에 마우스를 올리면 적용 결과를 미리봅니다 · JPG/PNG 드롭 = 샘플 사진 교체</span
+          >
+          <span id="previewLabelR" class="pv-label"></span>
+        </div>
       </div>
 
       <div id="results"></div>
@@ -219,6 +285,9 @@
         <b>NP3 → XMP</b> — NP3가 담고 있는 모든 항목(톤 슬라이더, 컬러 블렌더 → HSL,
         컬러 그레이딩 → 스플릿 토닝, 톤커브 앵커, 샤프닝·명료도·미드레인지)이 Lightroom
         프리셋으로 1:1 복원됩니다. 구형 51바이트 NCP는 기본 슬라이더만 옮겨집니다.<br />
+        <b>미리보기</b> — 변환된 행에 마우스를 올리면 샘플 사진에 프리셋을 실시간 적용해
+        보여줍니다(왼쪽: 변환 전 렌더/원본, 오른쪽: NP3 결과 — 경계선에서 변환 손실을 비교).
+        JPG/PNG 파일을 드롭하면 내 사진으로 미리볼 수 있고, 사진도 서버로 전송되지 않습니다.<br />
         <b>사용법</b> — 변환된 .NP3는 SD카드의 <code>NIKON/CUSTOMPC</code> 폴더에 넣고
         카메라 메뉴 → Picture Control 관리 → 메모리카드에서 복사 (Z6III · Z5II · Z50II ·
         Z8 · Z9 · Zf 등 Flexible Picture Control 지원 기종과 NX Studio). 변환된 .xmp는

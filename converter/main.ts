@@ -4,7 +4,11 @@
 
 import { xmpToPictureControl, pictureControlToXmp } from '../src/renderer/src/lib/xmp'
 import { buildNp3, parseNp3, np3ToneLut } from '../src/renderer/src/lib/np3'
-import { buildCurveLut, type PictureControl } from '../src/renderer/src/lib/pictureControl'
+import {
+  applyPictureControl,
+  buildCurveLut,
+  type PictureControl
+} from '../src/renderer/src/lib/pictureControl'
 
 interface Row {
   fileName: string
@@ -19,8 +23,135 @@ const dropzone = $('#dropzone')
 const fileInput = $('#fileInput') as unknown as HTMLInputElement
 const resultsEl = $('#results')
 const downloadAllBtn = $('#downloadAll') as unknown as HTMLButtonElement
+const previewEl = $('#preview')
+const pvCanvas = $('#previewCanvas') as unknown as HTMLCanvasElement
+const pvLabelL = $('#previewLabelL')
+const pvLabelR = $('#previewLabelR')
 
 const rows: Row[] = []
+
+// ---- hover preview: sample photo + before/after split render ---------------
+
+const PV_W = 720
+const PV_H = 480
+
+/** Procedural sample "photo": sky gradient with a sun glow, hills, skin/colour
+ * swatches and a neutral ramp — enough signal to judge tone, WB and HSL moves.
+ * Dropping a JPG/PNG onto the page replaces it with a real photo. */
+function makeSampleScene(): ImageData {
+  const img = new ImageData(PV_W, PV_H)
+  const d = img.data
+  const horizon = 0.6
+  const swatches = [
+    [233, 182, 150], [152, 102, 76], [201, 45, 40], [232, 140, 38], [235, 214, 60],
+    [62, 158, 70], [58, 178, 190], [52, 92, 200], [128, 70, 178], [128, 128, 128]
+  ]
+  for (let y = 0; y < PV_H; y++) {
+    for (let x = 0; x < PV_W; x++) {
+      const o = (y * PV_W + x) * 4
+      const fy = y / PV_H
+      const fx = x / PV_W
+      let r: number
+      let g: number
+      let b: number
+      if (fy < horizon) {
+        const t = fy / horizon // deep blue → warm horizon
+        r = 58 + t * 190
+        g = 108 + t * 100
+        b = 205 - t * 48
+        const dx = fx - 0.72
+        const dy = (fy - 0.16) * (PV_H / PV_W)
+        const glow = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) * 3.2)
+        r += glow * glow * 70
+        g += glow * glow * 52
+        b += glow * glow * 18
+      } else if (fy < horizon + 0.12 + 0.02 * Math.sin(fx * 9)) {
+        const near = fy > horizon + 0.055 + 0.02 * Math.sin(fx * 7 + 1)
+        r = near ? 52 : 88
+        g = near ? 82 : 118
+        b = near ? 44 : 66
+      } else if (fy < 0.9) {
+        const c = swatches[Math.min(9, Math.floor(fx * 10))]
+        r = c[0]
+        g = c[1]
+        b = c[2]
+      } else {
+        r = g = b = fx * 255 // neutral ramp for reading the tone curve
+      }
+      d[o] = r
+      d[o + 1] = g
+      d[o + 2] = b
+      d[o + 3] = 255
+    }
+  }
+  return img
+}
+
+let sample: ImageData = makeSampleScene()
+const renderCache = new Map<Row, HTMLCanvasElement>()
+
+const cloneSample = () =>
+  new ImageData(new Uint8ClampedArray(sample.data), sample.width, sample.height)
+
+async function loadSampleFile(f: File): Promise<void> {
+  const bmp = await createImageBitmap(f, { imageOrientation: 'from-image' })
+  const scale = Math.min(1, PV_W / bmp.width)
+  const w = Math.max(1, Math.round(bmp.width * scale))
+  const h = Math.max(1, Math.round(bmp.height * scale))
+  const c = document.createElement('canvas')
+  c.width = w
+  c.height = h
+  const ctx = c.getContext('2d')!
+  ctx.drawImage(bmp, 0, 0, w, h)
+  sample = ctx.getImageData(0, 0, w, h)
+  renderCache.clear()
+  drawIdle()
+}
+
+/** Left half = reference (XMP rows: full ACR render; NP3 rows: the untouched
+ * photo), right half = what the NP3 actually carries (round-tripped through
+ * the encoder), so conversion loss is visible on the divider. */
+function renderSplit(row: Row): HTMLCanvasElement {
+  const isXmpRow = typeof row.bytes !== 'string' // .xmp → .NP3 (bytes = NP3)
+  const left = cloneSample()
+  if (isXmpRow) applyPictureControl(left, row.ctrl!)
+  const right = cloneSample()
+  const rightCtrl = isXmpRow ? parseNp3(row.bytes as ArrayBuffer, row.outName) : row.ctrl!
+  applyPictureControl(right, rightCtrl)
+  const c = document.createElement('canvas')
+  c.width = sample.width
+  c.height = sample.height
+  const ctx = c.getContext('2d')!
+  const half = Math.floor(sample.width / 2)
+  ctx.putImageData(left, 0, 0)
+  ctx.putImageData(right, 0, 0, half, 0, sample.width - half, sample.height)
+  ctx.fillStyle = 'rgba(255,255,255,0.85)'
+  ctx.fillRect(half, 0, 1, sample.height)
+  return c
+}
+
+function showPreview(row: Row): void {
+  if (row.error || !row.ctrl || !row.bytes) return
+  let c = renderCache.get(row)
+  if (!c) {
+    c = renderSplit(row)
+    renderCache.set(row, c)
+  }
+  pvCanvas.width = c.width
+  pvCanvas.height = c.height
+  pvCanvas.getContext('2d')!.drawImage(c, 0, 0)
+  const isXmpRow = typeof row.bytes !== 'string'
+  pvLabelL.textContent = isXmpRow ? 'XMP(ACR) 렌더' : '원본'
+  pvLabelR.textContent = isXmpRow ? 'NP3 결과' : 'NP3 적용'
+}
+
+function drawIdle(): void {
+  pvCanvas.width = sample.width
+  pvCanvas.height = sample.height
+  pvCanvas.getContext('2d')!.putImageData(sample, 0, 0)
+  pvLabelL.textContent = ''
+  pvLabelR.textContent = ''
+}
 
 // ---- conversion (both directions, routed by extension) -----------------------
 
@@ -50,6 +181,7 @@ async function handleFiles(files: File[]): Promise<void> {
   for (const f of files) {
     if (/\.xmp$/i.test(f.name)) rows.push(convertXmp(f.name, await f.text()))
     else if (/\.(np3|ncp|np2)$/i.test(f.name)) rows.push(convertNp3(f.name, await f.arrayBuffer()))
+    else if (/\.(jpe?g|png|webp)$/i.test(f.name)) await loadSampleFile(f) // preview sample
     else skipped++
   }
   if (skipped > 0) {
@@ -168,12 +300,20 @@ function render(): void {
       btn.textContent = '다운로드'
       btn.onclick = () => download(row)
       div.appendChild(btn)
+      div.classList.add('previewable')
+      div.onmouseenter = () => showPreview(row)
+      div.onmouseleave = () => drawIdle()
+      div.onclick = () => showPreview(row) // touch devices have no hover
     }
     resultsEl.appendChild(div)
   }
   const ok = rows.filter((r) => r.bytes)
   downloadAllBtn.style.display = ok.length > 1 ? 'block' : 'none'
   downloadAllBtn.textContent = `전체 다운로드 (${ok.length}개)`
+  if (ok.length > 0 && previewEl.style.display !== 'block') {
+    previewEl.style.display = 'block'
+    drawIdle()
+  }
 }
 
 const esc = (s: string) =>
@@ -234,6 +374,14 @@ if (new URLSearchParams(location.search).has('selftest')) {
       reparsed?.acr?.hueAdjust?.[5] === -15 &&
       (reparsed?.curve.length ?? 0) >= 3 &&
       (reparsed?.curve.length ?? 99) <= 16 // Adobe's point-curve anchor limit
+  }
+  // preview smoke test: the split render must actually move pixels
+  if (ok) {
+    const pv = renderSplit(rows[0])
+    const strip = pv.getContext('2d')!.getImageData(0, 0, pv.width, 1).data
+    let diff = 0
+    for (let i = 0; i < strip.length; i += 40) diff += Math.abs(strip[i] - sample.data[i])
+    ok = pv.width === sample.width && diff > 0
   }
   render()
   document.title += ok ? ' — SELFTEST OK' : ' — SELFTEST FAIL'
