@@ -148,10 +148,14 @@ export function buildCurveLut(points: CurvePoint[]): Uint8ClampedArray {
     if (x >= pts[pts.length - 1].x) return pts[pts.length - 1].y
     let i = 0
     while (i < pts.length - 1 && pts[i + 1].x < x) i++
-    const p0 = pts[Math.max(0, i - 1)]
     const p1 = pts[i]
     const p2 = pts[Math.min(pts.length - 1, i + 1)]
-    const p3 = pts[Math.min(pts.length - 1, i + 2)]
+    // ghost points beyond the ends must be REFLECTED, not duplicated —
+    // a duplicated endpoint skews the end tangents and bows a 2-point
+    // "identity" curve into a phantom S (±12 at the quarter points)
+    const p0 = i > 0 ? pts[i - 1] : { x: 2 * p1.x - p2.x, y: 2 * p1.y - p2.y }
+    const p3 =
+      i + 2 < pts.length ? pts[i + 2] : { x: 2 * p2.x - p1.x, y: 2 * p2.y - p1.y }
     const span = p2.x - p1.x || 1
     const t = (x - p1.x) / span
     const t2 = t * t

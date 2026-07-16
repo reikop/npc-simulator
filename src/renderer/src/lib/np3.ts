@@ -41,11 +41,13 @@
 // offset 64, then a 257-entry u16 BE luminance LUT (0..32767, identity =
 // i×32767/256, applied in sRGB gamma space), then 00 00 00 00.
 //
-// Not expressible in an NP3 and therefore dropped: white balance, per-channel
-// (R/G/B) point curves, dehaze, grain and sharpen radius/detail. Vibrance is
-// folded into saturation (sat + vib/2 — matches observed conversions);
-// exposure + parametric curve + master curve + tone sliders are baked into
-// the tone-curve LUT when a curve is needed.
+// Not expressible in an NP3 and therefore dropped: white balance, dehaze,
+// grain, sharpen radius/detail, and the colour-cast component of per-channel
+// (R/G/B) point curves — but the channel curves' shared (luma) shape IS baked
+// into the luminance LUT, since presets like VSCO carry their entire contrast
+// there. Vibrance is folded into saturation (sat + vib/2 — matches observed
+// conversions); exposure + parametric curve + master curve + tone sliders are
+// baked into the tone-curve LUT when a curve is needed.
 
 import type { CurvePoint, MonoToningType, PictureControl } from './pictureControl'
 import { buildCurveLut, buildToneLut as buildPcToneLut, identityCurve } from './pictureControl'
@@ -103,6 +105,29 @@ const identityish = (pts: CurvePoint[]) => {
   return true
 }
 
+/** The luminance LUT baked into the NP3 curve chunk: the ACR tone pipeline
+ * (exposure / tone sliders / parametric / master curve) composed with the
+ * luma-weighted mix of the R/G/B point curves, in render order (acr.ts applies
+ * channel curves after the tone LUT). NP3 has no per-channel curves, so how
+ * the three differ (the colour cast) is the one part that drops out — losing
+ * their shared contrast shape too is what used to wash film presets out. */
+export function np3ToneLut(pc: PictureControl): Uint8ClampedArray {
+  const a = pc.acr
+  if (!a) return buildPcToneLut(pc)
+  const lut = buildAcrToneLut(a, pc.curve)
+  const chan = [a.curveRed, a.curveGreen, a.curveBlue]
+  if (!chan.some((c) => c && c.length >= 2)) return lut
+  const [rL, gL, bL] = chan.map((c) => (c && c.length >= 2 ? buildCurveLut(c) : null))
+  const out = new Uint8ClampedArray(256)
+  for (let i = 0; i < 256; i++) {
+    const v = lut[i]
+    out[i] = Math.round(
+      0.2126 * (rL ? rL[v] : v) + 0.7152 * (gL ? gL[v] : v) + 0.0722 * (bL ? bL[v] : v)
+    )
+  }
+  return out
+}
+
 /** 256-entry 8-bit LUT → the NP3 curve chunk (I0 header + points + 257×u16). */
 function toneCurveChunk(w: ByteBuilder, lut: Uint8ClampedArray): void {
   w.u32(0x00000002) // next chunk: tone curve
@@ -142,11 +167,16 @@ export function buildNp3(pc: PictureControl): ArrayBuffer {
   const a = pc.acr
   const w = new ByteBuilder()
 
-  // does the look need the tone-curve chunk? (exposure and the parametric
-  // regions only exist as curve shape; a non-identity master curve obviously)
+  // does the look need the tone-curve chunk? (exposure, the parametric
+  // regions and the channel curves' shared shape only exist as curve shape;
+  // a non-identity master curve obviously)
   const mono = pc.mode === 'monochrome' || !!a?.monochrome
+  const hasChanCurve =
+    !!a &&
+    [a.curveRed, a.curveGreen, a.curveBlue].some((c) => c && c.length >= 2 && !identityish(c))
   const needCurve = a
     ? !identityish(pc.curve) ||
+      hasChanCurve ||
       Math.abs(a.exposure ?? 0) > 0.05 ||
       !!(a.paramShadows || a.paramDarks || a.paramLights || a.paramHighlights)
     : !identityish(pc.curve) || pc.brightness !== 0
@@ -252,8 +282,7 @@ export function buildNp3(pc: PictureControl): ArrayBuffer {
 
   // tone-curve chunk or end-of-file
   if (needCurve) {
-    const lut = a ? buildAcrToneLut(a, pc.curve) : buildPcToneLut(pc)
-    toneCurveChunk(w, lut)
+    toneCurveChunk(w, np3ToneLut(pc))
   } else {
     w.u32(0)
   }

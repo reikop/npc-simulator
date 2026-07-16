@@ -3,9 +3,8 @@
 // write/parse).
 
 import { xmpToPictureControl, pictureControlToXmp } from '../src/renderer/src/lib/xmp'
-import { buildNp3, parseNp3 } from '../src/renderer/src/lib/np3'
-import { buildToneLut } from '../src/renderer/src/lib/acr'
-import type { PictureControl } from '../src/renderer/src/lib/pictureControl'
+import { buildNp3, parseNp3, np3ToneLut } from '../src/renderer/src/lib/np3'
+import { buildCurveLut, type PictureControl } from '../src/renderer/src/lib/pictureControl'
 
 interface Row {
   fileName: string
@@ -79,9 +78,24 @@ function chips(ctrl: PictureControl): { label: string; cls: string }[] {
   const g = a.grade
   if (g && (g.shadow.s > 0 || g.midtone.s > 0 || g.highlight.s > 0))
     out.push({ label: '스플릿 토닝 → 그레이딩', cls: 'on' })
+  // channel curves: their shared (luma) shape is baked into the NP3 curve;
+  // only the spread between R/G/B — the colour cast — is dropped
+  const chanLuts = [a.curveRed, a.curveGreen, a.curveBlue].map((c) =>
+    c && c.length >= 2 ? buildCurveLut(c) : null
+  )
+  let chanShape = 0
+  let chanCast = 0
+  for (let i = 0; i < 256; i++) {
+    const r = chanLuts[0] ? chanLuts[0][i] : i
+    const g = chanLuts[1] ? chanLuts[1][i] : i
+    const b = chanLuts[2] ? chanLuts[2][i] : i
+    chanShape = Math.max(chanShape, Math.abs(0.2126 * r + 0.7152 * g + 0.0722 * b - i))
+    chanCast = Math.max(chanCast, Math.max(r, g, b) - Math.min(r, g, b))
+  }
   const curveBaked =
     ctrl.curve.length > 2 ||
     ctrl.curve.some((p) => Math.abs(p.y - p.x) > 3) ||
+    chanShape > 3 ||
     Math.abs(a.exposure ?? 0) > 0.05 ||
     !!(a.paramShadows || a.paramDarks || a.paramLights || a.paramHighlights)
   if (curveBaked) out.push({ label: '톤커브 베이크', cls: 'on' })
@@ -89,10 +103,7 @@ function chips(ctrl: PictureControl): { label: string; cls: string }[] {
     out.push({ label: '샤프닝·명료도', cls: 'on' })
   // dropped features
   if (a.wbTemp || a.wbTint) out.push({ label: 'WB 드롭', cls: 'warn' })
-  const channelCurves = [a.curveRed, a.curveGreen, a.curveBlue].some(
-    (c) => c && (c.length > 2 || c.some((p) => Math.abs(p.y - p.x) > 3))
-  )
-  if (channelCurves) out.push({ label: 'RGB 채널커브 드롭', cls: 'warn' })
+  if (chanCast > 5) out.push({ label: 'RGB커브 색조 드롭', cls: 'warn' })
   if (a.grainAmount) out.push({ label: '그레인 드롭', cls: 'warn' })
   if (a.dehaze) out.push({ label: '디헤이즈 드롭', cls: 'warn' })
   return out
@@ -101,7 +112,7 @@ function chips(ctrl: PictureControl): { label: string; cls: string }[] {
 /** Tiny sparkline of the luminance curve the NP3 will carry. */
 function curveSvg(ctrl: PictureControl): string {
   if (!ctrl.acr) return ''
-  const lut = buildToneLut(ctrl.acr, ctrl.curve)
+  const lut = np3ToneLut(ctrl)
   const S = 56
   const pts: string[] = []
   for (let i = 0; i <= 27; i++) {
