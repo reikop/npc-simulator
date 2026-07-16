@@ -106,7 +106,7 @@ async function loadSampleFile(f: File): Promise<void> {
     ctx.drawImage(bmp, 0, 0, w, h)
     sample = ctx.getImageData(0, 0, w, h)
     renderCache.clear()
-    previewEl.style.display = 'block' // a photo alone must show the panel too
+    showPanel() // a photo alone must show the panel too
     drawIdle()
   } catch {
     rows.push({
@@ -162,6 +162,12 @@ function drawIdle(): void {
   pvCanvas.getContext('2d')!.putImageData(sample, 0, 0)
   pvLabelL.textContent = ''
   pvLabelR.textContent = ''
+}
+
+/** Reveal the preview column (widens the page into the two-column layout). */
+function showPanel(): void {
+  previewEl.style.display = 'block'
+  document.querySelector('main')!.classList.add('wide')
 }
 
 // ---- conversion (both directions, routed by extension) -----------------------
@@ -322,7 +328,7 @@ function render(): void {
   downloadAllBtn.style.display = ok.length > 1 ? 'block' : 'none'
   downloadAllBtn.textContent = `전체 다운로드 (${ok.length}개)`
   if (ok.length > 0 && previewEl.style.display !== 'block') {
-    previewEl.style.display = 'block'
+    showPanel()
     drawIdle()
   }
 }

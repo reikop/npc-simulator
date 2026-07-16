@@ -39,6 +39,30 @@
       main {
         width: 100%;
         max-width: 720px;
+        transition: max-width 0.2s ease;
+      }
+      main.wide {
+        max-width: 1220px;
+      }
+      .layout {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      .col-main {
+        flex: 1 1 0;
+        min-width: 0;
+      }
+      @media (max-width: 1020px) {
+        .layout {
+          flex-direction: column;
+        }
+        #preview {
+          order: -1;
+          width: 100%;
+          flex: none;
+          top: 8px;
+        }
       }
       h1 {
         font-size: 26px;
@@ -79,9 +103,9 @@
       }
       #preview {
         display: none;
-        margin-top: 20px;
+        flex: 0 0 460px;
         position: sticky;
-        top: 10px;
+        top: 16px;
         z-index: 5;
         background: var(--bg2);
         border: 1px solid var(--line);
@@ -235,7 +259,7 @@
         color: var(--accent2);
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-AjX7OjSu.js"></script>
+    <script type="module" crossorigin src="./assets/index--dlWFPVU.js"></script>
   </head>
   <body>
     <main>
@@ -247,6 +271,8 @@
         모든 처리는 브라우저 안에서만 이루어집니다 — 파일이 서버로 전송되지 않습니다.
       </p>
 
+      <div class="layout">
+        <div class="col-main">
       <div id="dropzone">
         <div class="icon">⤓</div>
         <p>XMP 또는 NP3 파일을 여기에 드래그하거나 클릭해서 선택</p>
@@ -261,17 +287,6 @@
           multiple
           hidden
         />
-      </div>
-
-      <div id="preview">
-        <canvas id="previewCanvas" width="720" height="480"></canvas>
-        <div class="preview-bar">
-          <span id="previewLabelL" class="pv-label"></span>
-          <span id="previewHint"
-            >행에 마우스를 올리면 적용 결과를 미리봅니다 · JPG/PNG 드롭 = 샘플 사진 교체</span
-          >
-          <span id="previewLabelR" class="pv-label"></span>
-        </div>
       </div>
 
       <div id="results"></div>
@@ -292,6 +307,19 @@
         카메라 메뉴 → Picture Control 관리 → 메모리카드에서 복사 (Z6III · Z5II · Z50II ·
         Z8 · Z9 · Zf 등 Flexible Picture Control 지원 기종과 NX Studio). 변환된 .xmp는
         Lightroom의 프리셋 가져오기로 불러옵니다.
+      </div>
+        </div>
+
+        <aside id="preview">
+          <canvas id="previewCanvas" width="720" height="480"></canvas>
+          <div class="preview-bar">
+            <span id="previewLabelL" class="pv-label"></span>
+            <span id="previewHint"
+              >행에 마우스를 올리면 적용 결과를 미리봅니다 · JPG/PNG 드롭 = 샘플 사진 교체</span
+            >
+            <span id="previewLabelR" class="pv-label"></span>
+          </div>
+        </aside>
       </div>
 
       <footer>
